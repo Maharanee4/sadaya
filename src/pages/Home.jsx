@@ -11,16 +11,16 @@ import './Home.css';
 
 const ONBOARDING_STEPS = [
     {
-        title: 'Tentukan Target Perjalanan',
-        description: 'Agar SADAYA bisa membantumu dengan tepat, pilihlah tujuan yang ingin kamu capai.'
+        title: 'Pilih Tujuan Belajarmu',
+        description: 'Pilih hal yang ingin kamu pelajari agar SADAYA bisa menemanimu bertumbuh.'
     },
     {
         title: 'Selamat Datang di SADAYA',
         description: 'Ruang digital yang mendukung generasi muda untuk belajar, menjaga diri, dan merencanakan masa depan.'
     },
     {
-        title: 'Catat Absen Perjalanan',
-        description: 'Catat asupan air, kesehatan harian, dan selesaikan tantangan sehat perjalanan agar liburan tetap aman.'
+        title: 'Mulai Langkah SADAYA',
+        description: 'Jelajahi materi, kuis, dan ruang diskusi untuk memahami diri, membangun hubungan sehat, dan menyiapkan masa depan.'
     },
     {
         title: 'TEMAN SADAYA',
@@ -29,9 +29,9 @@ const ONBOARDING_STEPS = [
 ];
 
 const ONBOARDING_GOALS = [
-    'Meningkatkan hidrasi (minum air)',
-    'Menjaga berat badan ideal',
-    'Menghindari minuman bersoda/boba'
+    'Memahami hubungan yang sehat',
+    'Belajar komunikasi dan batasan diri',
+    'Merencanakan masa depan dengan bijak'
 ];
 
 const BADGE_RULES = [
@@ -230,7 +230,7 @@ const Home = () => {
                     </div>
                     <h2 className="app-name" style={{ textAlign: 'center', marginBottom: '8px' }}>SADAYA</h2>
                     <p style={{ textAlign: 'center', color: '#64748b', marginBottom: '24px', fontSize: '14px' }}>
-                        Ransel Digital - Travel Health Nursing untuk keselamatan anak selama perjalanan wisata.
+                        Ruang belajar dan bertumbuh bagi generasi muda Bali untuk membangun hubungan sehat, menjaga diri, dan merencanakan masa depan.
                     </p>
 
                     <form onSubmit={handleLogin} className="login-form">
@@ -260,7 +260,7 @@ const Home = () => {
                             <p style={{ marginTop: '10px', fontSize: '12px', color: '#b91c1c' }}>{authError}</p>
                         )}
                         <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '16px' }} disabled={isAuthLoading}>
-                            Masuk & Mulai Hidup Sehat
+                            Mulai Perjalanan Remaja
                         </button>
                     </form>
                 </div>
