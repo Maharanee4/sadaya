@@ -362,10 +362,11 @@ const Home = () => {
                           <BarChart2 size={28} color="#7c3aed" style={{ display: 'block', margin: '0 auto 8px auto' }} />
                           <span style={{ fontSize: '13px', color: '#6d28d9', fontWeight: '700' }}>SADAYA CERDAS</span>
                         </div>
-                        <div onClick={() => navigate('/game')} style={{ padding: '18px 12px', backgroundColor: '#f0fdf4', borderRadius: '16px', textAlign: 'center', border: '1px solid #bbf7d0', cursor: 'pointer', transition: 'all 0.3s' }} className="hover-lift">
+                        <button type="button" onClick={() => navigate('/game')} aria-label="Main SADAYA BERDAYA: tiga tantangan pilihan untuk remaja" style={{ padding: '18px 12px', backgroundColor: '#f0fdf4', borderRadius: '16px', textAlign: 'center', border: '1px solid #bbf7d0', cursor: 'pointer', transition: 'all 0.3s', color: 'inherit', font: 'inherit' }} className="hover-lift">
                           <Gamepad2 size={28} color="#16a34a" style={{ display: 'block', margin: '0 auto 8px auto' }} />
                           <span style={{ fontSize: '13px', color: '#15803d', fontWeight: '700' }}>SADAYA BERDAYA</span>
-                        </div>
+                          <span style={{ display: 'block', marginTop: '5px', fontSize: '10px', color: '#4b7b54' }}>Mainkan 3 tantangan pilihan untuk remaja</span>
+                        </button>
                     </div>
                 </div>
 
