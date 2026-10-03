@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Gamepad2, Heart, RotateCcw, Sparkles } from 'lucide-react';
 import './SadayaPlay.css';
 
-const GAME_SECONDS = 45;
-const STARTING_LIVES = 3;
+const GAME_SECONDS = 60;
+const STARTING_LIVES = 5;
 const PLAYER_Y = 84;
 const TICK_MS = 50;
 
@@ -12,7 +12,7 @@ const makeBall = (id) => ({
   id,
   x: 7 + Math.random() * 86,
   y: -5,
-  speed: 24 + Math.random() * 18,
+  speed: 15 + Math.random() * 10,
   kind: Math.random() > 0.9 ? 'golden' : 'normal',
 });
 
@@ -110,7 +110,7 @@ export default function SadayaPlay() {
       <section className="sadaya-play-hero">
         <span className="sadaya-play-eyebrow"><Sparkles size={15} /> GAME SANTAI · TANTANGAN REFLEKS</span>
         <h1>Tangkap Bolanya!<br /><span>Kejar skor tertinggi.</span></h1>
-        <p>Geser keranjang ke kiri dan kanan untuk menangkap bola yang jatuh. Bola emas memberi 30 poin. Kamu punya 45 detik—siap mencetak rekor?</p>
+        <p>Geser keranjang ke kiri dan kanan untuk menangkap bola yang jatuh. Bola emas memberi 30 poin. Kamu punya 60 detik—siap mencetak rekor?</p>
       </section>
 
       <section className="sadaya-catch-game" aria-label="Permainan menangkap bola">
@@ -142,7 +142,7 @@ export default function SadayaPlay() {
         </div>}
       </section>
 
-      <aside className="sadaya-catch-tip"><span>💡</span><p>Bola hijau dan kuning masing-masing bernilai 10 poin. Tangkap bola emas untuk bonus 30 poin. Rekor hanya tersimpan di perangkat ini.</p></aside>
+      <aside className="sadaya-catch-tip"><span>💡</span><p>Bola hijau bernilai 10 poin. Tangkap bola emas untuk bonus 30 poin. Kamu punya lima kesempatan selama 60 detik; rekor hanya tersimpan di perangkat ini.</p></aside>
     </main>
   );
 }
