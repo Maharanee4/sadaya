@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
   <title id="title">SADAYA Bersih Bali</title>
-  <desc id="desc">Ilustrasi logo kepedulian sampah dengan gerbang khas Bali, gunung, daun, dan simbol daur ulang.</desc>
+  <desc id="desc">Ilustrasi gapura candi bentar Bali, Gunung Agung, dan tiga tempat sampah terpilah: organik, nonorganik, dan residu.</desc>
   <defs>
     <linearGradient id="ring" x1="64" y1="80" x2="440" y2="430" gradientUnits="userSpaceOnUse">
       <stop stop-color="#23864d"/>
@@ -29,23 +29,38 @@
     <path d="m188 150 24 19 17-8 25-48 27 51 21-7 35 43H155z" fill="#78b9a0"/>
     <path d="M115 191c27-26 53-41 77-46-12 15-22 29-31 45 24-10 43-14 59-13-19 13-32 28-43 45H125z" fill="#348b50"/>
     <path d="M398 188c-26-25-52-39-76-43 12 14 22 28 31 43-22-8-42-10-60-7 18 12 32 27 43 44h67z" fill="#4b9d50"/>
-    <path d="M120 213c39-15 84-23 136-23s97 8 136 23v124H120z" fill="url(#ground)"/>
+    <path d="M120 213c39-15 84-23 136-23s97 8 136 23v155H120z" fill="url(#ground)"/>
 
-    <!-- Balinese split gate -->
-    <path d="M142 333V182h24v151m180 0V182h24v151" fill="#8e5931" stroke="#593a2a" stroke-width="5" stroke-linejoin="round"/>
-    <path d="M133 190h42l-7-14h-28zm173 0h42l-7-14h-28z" fill="#d49a43" stroke="#76502f" stroke-width="4" stroke-linejoin="round"/>
-    <path d="M145 214h18m-18 24h18m-18 24h18m171-48h18m-18 24h18m-18 24h18" stroke="#e5bd70" stroke-width="5" stroke-linecap="round"/>
-    <path d="M131 334h46m168 0h46" stroke="#5a492f" stroke-width="8" stroke-linecap="round"/>
-    <path d="M187 337c32-17 68-25 109-24 27 1 49 7 68 18-33 20-67 30-105 30-29 0-53-7-72-24z" fill="#80b75b"/>
-    <path d="M197 345c30-12 66-15 104-8-18 9-37 15-58 15-18 0-33-2-46-7z" fill="#d4b832"/>
+    <!-- Split Balinese candi bentar gate in carved volcanic stone -->
+    <path d="M128 357V316h11v-18h-8v-17h13v-18h-9v-17h13v-20h-9v-17h13v-17h-7v-16h13v-16h-7v-14h15v-13h12V357z" fill="#71685a" stroke="#49483f" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M384 357V316h-11v-18h8v-17h-13v-18h9v-17h-13v-20h9v-17h-13v-17h7v-16h-13v-16h7v-14h-15v-13h-12V357z" fill="#71685a" stroke="#49483f" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M129 316h22m-20-18h21m-19-17h22m-20-18h22m-21-17h22m-20-20h22m-20-17h21m-19-17h20m-18-16h18m-16-14h16m-13-13h14M383 316h-22m20-18h-21m19-17h-22m20-18h-22m21-17h-22m20-20h-22m20-17h-21m19-17h-20m18-16h-18m16-14h-16m13-13h-14" fill="none" stroke="#d4b987" stroke-width="3" stroke-linecap="round"/>
+    <path d="M131 357h48m154 0h48" stroke="#4c392c" stroke-width="8" stroke-linecap="round"/>
+    <!-- Small floral carvings and poleng-inspired stone bands -->
+    <path d="M160 267c-8-7-2-15 2-16 0 6 7 8 2 16 8-6 11-1 9 4h-16c-2-4 0-7 3-9zm192 0c8-7 2-15-2-16 0 6-7 8-2 16-8-6-11-1-9 4h16c2-4 0-7-3-9z" fill="#edc936"/>
+    <path d="M138 297h29m-29 8h29m178-8h29m-29 8h29" stroke="#f3e7ce" stroke-width="3" stroke-dasharray="4 4"/>
+    <path d="M181 360c24-13 49-18 75-18s51 5 75 18v11H181z" fill="#79ac53"/>
 
-    <!-- Segregated waste bin -->
-    <path d="M204 250h104l-9 99a13 13 0 0 1-13 12h-60a13 13 0 0 1-13-12z" fill="url(#bin)" stroke="#165b46" stroke-width="5" stroke-linejoin="round"/>
-    <path d="M195 243h122v13H195zm23-12h76l9 12h-94z" fill="#1f6f52" stroke="#165b46" stroke-width="4" stroke-linejoin="round"/>
-    <path d="M229 319h55m-53 14h50" stroke="#c4ead0" stroke-opacity=".65" stroke-width="5" stroke-linecap="round"/>
-    <path d="M258 307c-1-14 1-25 8-34" fill="none" stroke="#f5f8e7" stroke-width="5" stroke-linecap="round"/>
-    <path d="M260 289c-15 2-20-6-18-16 11 0 18 4 18 16zm5-12c0-13 8-19 18-17 0 10-5 16-18 17z" fill="#f5f8e7"/>
-    <circle cx="267" cy="306" r="3" fill="#edc936"/>
+    <!-- Three clearly separated waste bins -->
+    <g aria-label="Organik">
+      <path d="M171 289h52l-4 66a8 8 0 0 1-8 7h-28a8 8 0 0 1-8-7z" fill="#348a52" stroke="#1d6241" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M168 282h58v9h-58zm7-7h44l7 7h-58z" fill="#246f46" stroke="#1d6241" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M196 315c-1-7 1-13 5-18m-5 12c-8 1-11-3-10-9 6 0 10 3 10 9zm3-7c0-7 4-10 10-9 0 6-3 9-10 9z" fill="#f3f8de"/>
+      <text x="197" y="338" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="700" text-anchor="middle">ORGANIK</text>
+    </g>
+    <g aria-label="Nonorganik">
+      <path d="M230 289h52l-4 66a8 8 0 0 1-8 7h-28a8 8 0 0 1-8-7z" fill="#3285ae" stroke="#1e5d82" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M227 282h58v9h-58zm7-7h44l7 7h-58z" fill="#236b98" stroke="#1e5d82" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M250 302h12v17h-12zm3-4h6v4h-6zm-6 10h18m-18 5h18" fill="none" stroke="#eaf7ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="256" y="336" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="6.2" font-weight="700" text-anchor="middle">NON</text>
+      <text x="256" y="343" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="6.2" font-weight="700" text-anchor="middle">ORGANIK</text>
+    </g>
+    <g aria-label="Residu">
+      <path d="M289 289h52l-4 66a8 8 0 0 1-8 7h-28a8 8 0 0 1-8-7z" fill="#b58a22" stroke="#826213" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M286 282h58v9h-58zm7-7h44l7 7h-58z" fill="#967116" stroke="#826213" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M310 301h11v17h-11zm-2 0h15m-11-4h8m-11 25h14" fill="none" stroke="#fff5d7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="315" y="338" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="700" text-anchor="middle">RESIDU</text>
+    </g>
   </g>
 
   <path d="M113 410c34 14 80 21 143 21s109-7 143-21" fill="none" stroke="url(#ring)" stroke-width="7" stroke-linecap="round"/>
