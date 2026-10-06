@@ -298,8 +298,8 @@ const Home = () => {
                 </div>
 
                 <h1 className="hero-title">
-                    Seka Truna Truni <br />
-                    <span className="text-gradient">Generasi Muda Berdaya.</span>
+                    Blasman <br />
+                    <span className="text-gradient">Aksi Peduli Lingkungan</span>
                 </h1>
 
                 <p className="hero-description">
