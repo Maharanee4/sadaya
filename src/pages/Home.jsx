@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sparkles, MessageSquare, BarChart2, Gamepad2, GraduationCap, UsersRound } from 'lucide-react';
+import { Sparkles, ScanLine, BarChart2, GraduationCap, Recycle, BookOpen, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import sadayaLogo from '../assets/sadaya-logo-terpilah.png';
@@ -12,32 +12,32 @@ import './Home.css';
 const ONBOARDING_STEPS = [
     {
         title: 'Pilih Tujuan Belajarmu',
-        description: 'Pilih hal yang ingin kamu pelajari agar BALI bisa menemanimu bertumbuh.'
+        description: 'Pilih hal yang ingin kamu pelajari agar makin mudah mengenali dan memilah sampah.'
     },
     {
         title: 'Selamat Datang di BALI',
-        description: 'Ruang digital yang mendukung generasi muda untuk belajar, menjaga diri, dan merencanakan masa depan.'
+        description: 'Ruang belajar bagi siswa untuk memahami jenis sampah dan menjaga lingkungan mulai dari sekolah.'
     },
     {
         title: 'Mulai Langkah BALI',
-        description: 'Jelajahi materi, kuis, dan ruang diskusi untuk memahami diri, membangun hubungan sehat, dan menyiapkan masa depan.'
+        description: 'Jelajahi materi, kuis, dan latihan sederhana untuk membedakan sampah organik, nonorganik, dan residu.'
     },
     {
-        title: 'TEMAN BALI',
-        description: 'Konsultasikan perencanaan masa depan, kesehatan reproduksi, dan hubungan yang aman dengan AI ramah remaja.'
+        title: 'BALI MAP',
+        description: 'Temukan panduan untuk mencari fasilitas pengelolaan sampah resmi di wilayah Bali.'
     }
 ];
 
 const ONBOARDING_GOALS = [
-    'Memahami hubungan yang sehat',
-    'Belajar komunikasi dan batasan diri',
-    'Merencanakan masa depan dengan bijak'
+    'Mengenali perbedaan jenis sampah',
+    'Belajar memilah sampah dengan benar',
+    'Mengurangi sampah di rumah dan sekolah'
 ];
 
 const BADGE_RULES = [
-    { key: 'starter', label: 'NutriNovice', minXp: 30 },
-    { key: 'consistent', label: 'SipConsistent 7D', minXp: 120 },
-    { key: 'master', label: 'NutriMaster 30D', minXp: 300 }
+    { key: 'starter', label: 'Pemula Pilah', minXp: 30 },
+    { key: 'consistent', label: 'Sahabat Lingkungan', minXp: 120 },
+    { key: 'master', label: 'Jago Pilah Sampah', minXp: 300 }
 ];
 const BALI_REGIONS = ['Jembrana', 'Tabanan', 'Badung', 'Gianyar', 'Klungkung', 'Bangli', 'Karangasem', 'Buleleng', 'Denpasar'];
 
@@ -230,7 +230,7 @@ const Home = () => {
                     </div>
                     <h2 className="app-name" style={{ textAlign: 'center', marginBottom: '8px' }}>BALI</h2>
                     <p style={{ textAlign: 'center', color: '#64748b', marginBottom: '24px', fontSize: '14px' }}>
-                        Ruang belajar dan bertumbuh bagi generasi muda Bali untuk membangun hubungan sehat, menjaga diri, dan merencanakan masa depan.
+                        Bantu siswa mengenali perbedaan sampah organik, nonorganik, dan residu, lalu belajar memilahnya dengan tepat.
                     </p>
 
                     <form onSubmit={handleLogin} className="login-form">
@@ -260,7 +260,7 @@ const Home = () => {
                             <p style={{ marginTop: '10px', fontSize: '12px', color: '#b91c1c' }}>{authError}</p>
                         )}
                         <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '16px' }} disabled={isAuthLoading}>
-                            Mulai Perjalanan Remaja
+                            Mulai Belajar Pilah Sampah
                         </button>
                     </form>
                 </div>
@@ -303,13 +303,13 @@ const Home = () => {
                 </h1>
 
                 <p className="hero-description">
-                    BALI menyediakan ruang belajar dan dukungan bagi generasi muda untuk menjaga diri, membangun hubungan sehat, dan merencanakan masa depan.
+                    BALI membantu siswa memahami perbedaan sampah organik, nonorganik, dan residu, serta berlatih memilah sampah berdasarkan jenisnya.
                 </p>
 
                 <div style={{ display: 'flex', width: '100%', maxWidth: '500px', marginBottom: '24px' }}>
-                    <button className="btn-secondary" style={{ flex: 1, borderRadius: '16px', padding: '12px 20px', display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'center' }} onClick={() => navigate('/chat')}>
-                        <MessageSquare size={18} />
-                        Tanya TEMAN BALI
+                    <button className="btn-secondary" style={{ flex: 1, borderRadius: '16px', padding: '12px 20px', display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'center' }} onClick={() => navigate('/checklist')}>
+                        <Recycle size={18} />
+                        Mulai BALI PILAH
                     </button>
                 </div>
 
@@ -345,28 +345,21 @@ const Home = () => {
                         🌿 Jelajahi Fitur Utama
                     </h3>
                     
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '12px' }}>
-                        <div onClick={() => navigate('/education')} style={{ padding: '18px 12px', backgroundColor: '#fff0f5', borderRadius: '16px', textAlign: 'center', border: '1px solid #fbcfe8', cursor: 'pointer', transition: 'all 0.3s' }} className="hover-lift">
-                          <GraduationCap size={28} color="#c34d77" style={{ display: 'block', margin: '0 auto 8px auto' }} />
-                          <span style={{ fontSize: '13px', color: '#9d315d', fontWeight: '700' }}>BALI EDU</span>
-                        </div>
-                        <button type="button" onClick={() => navigate('/yowana')} className="hover-lift" style={{ padding: '18px 12px', backgroundColor: '#edf5ec', borderRadius: '16px', textAlign: 'center', border: '1px solid #d5e7d2', cursor: 'pointer', transition: 'all 0.3s', color: 'inherit' }}>
-                          <UsersRound size={28} color="#438052" style={{ display: 'block', margin: '0 auto 8px auto' }} />
-                          <span style={{ fontSize: '13px', color: '#356d43', fontWeight: '700' }}>BALI YOWANA</span>
-                        </button>
-                        <div onClick={() => navigate('/chat')} style={{ padding: '18px 12px', backgroundColor: '#eff6ff', borderRadius: '16px', textAlign: 'center', border: '1px solid #bfdbfe', cursor: 'pointer', transition: 'all 0.3s' }} className="hover-lift">
-                          <MessageSquare size={28} color="#2563eb" style={{ display: 'block', margin: '0 auto 8px auto' }} />
-                          <span style={{ fontSize: '13px', color: '#1d4ed8', fontWeight: '700' }}>TEMAN BALI</span>
-                        </div>
-                        <div onClick={() => navigate('/progress')} style={{ padding: '18px 12px', backgroundColor: '#faf5ff', borderRadius: '16px', textAlign: 'center', border: '1px solid #f3e8ff', cursor: 'pointer', transition: 'all 0.3s' }} className="hover-lift">
-                          <BarChart2 size={28} color="#7c3aed" style={{ display: 'block', margin: '0 auto 8px auto' }} />
-                          <span style={{ fontSize: '13px', color: '#6d28d9', fontWeight: '700' }}>BALI CERDAS</span>
-                        </div>
-                        <button type="button" onClick={() => navigate('/game')} aria-label="Main BALI BERDAYA: tiga tantangan pilihan untuk remaja" style={{ padding: '18px 12px', backgroundColor: '#f0fdf4', borderRadius: '16px', textAlign: 'center', border: '1px solid #bbf7d0', cursor: 'pointer', transition: 'all 0.3s', color: 'inherit', font: 'inherit' }} className="hover-lift">
-                          <Gamepad2 size={28} color="#16a34a" style={{ display: 'block', margin: '0 auto 8px auto' }} />
-                          <span style={{ fontSize: '13px', color: '#15803d', fontWeight: '700' }}>BALI BERDAYA</span>
-                          <span style={{ display: 'block', marginTop: '5px', fontSize: '10px', color: '#4b7b54' }}>Mainkan 3 tantangan pilihan untuk remaja</span>
-                        </button>
+                    <div className="waste-feature-grid">
+                        {[
+                            { title: 'BALI SCAN', detail: 'Cari jenis sebuah benda', path: '/scan', Icon: ScanLine },
+                            { title: 'BALI EDU', detail: 'Pelajari dasar pemilahan', path: '/education', Icon: GraduationCap },
+                            { title: 'BALI PILAH', detail: 'Latihan memilih wadah', path: '/checklist', Icon: Recycle },
+                            { title: 'BALI TRACK', detail: 'Catat aksi pilah harian', path: '/tracking', Icon: BarChart2 },
+                            { title: 'BALI QUIZ', detail: 'Uji pemahamanmu', path: '/quiz', Icon: BookOpen },
+                            { title: 'BALI MAP', detail: 'Cari panduan fasilitas Bali', path: '/map', Icon: MapPin },
+                        ].map(({ title, detail, path, Icon }) => (
+                            <button type="button" key={title} className="waste-feature-card" onClick={() => navigate(path)}>
+                                <Icon className="waste-feature-icon" size={27} aria-hidden="true" />
+                                <span className="waste-feature-title">{title}</span>
+                                <span className="waste-feature-detail">{detail}</span>
+                            </button>
+                        ))}
                     </div>
                 </div>
 
@@ -432,7 +425,7 @@ const Home = () => {
                             </div>
                             <h2 style={{ fontSize: '20px', fontWeight: '800', color: '#0f172a', marginBottom: '8px' }}>Selamat Datang Sahabat</h2>
                             <p style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.6', marginBottom: '24px' }}>
-                                Senang melihatmu di BALI. Yuk belajar, bertumbuh, dan merencanakan masa depan bersama.
+                                Senang melihatmu di BALI. Yuk kenali jenis sampah dan mulai memilahnya dengan benar di sekolah maupun di rumah.
                             </p>
                             <button className="btn-primary hover-lift" onClick={() => setShowWelcome(false)} style={{ width: '100%', padding: '14px', borderRadius: '16px' }}>
                                 Mulai Perjalanan Remaja

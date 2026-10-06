@@ -11,12 +11,15 @@ import './index.css';
 const Chat = lazy(() => import('./pages/Chat'));
 const CheckIn = lazy(() => import('./pages/CheckIn'));
 const Profile = lazy(() => import('./pages/Profile'));
-const Scan = lazy(() => import('./pages/Scan'));
 const SadayaPlay = lazy(() => import('./pages/SadayaPlay'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const Education = lazy(() => import('./pages/Education'));
 const Yowana = lazy(() => import('./pages/Yowana'));
 const SadayaCerdas = lazy(() => import('./pages/SadayaCerdas'));
+const WasteScan = lazy(() => import('./pages/WasteScan'));
+const WasteSort = lazy(() => import('./pages/WasteSort'));
+const WasteTrack = lazy(() => import('./pages/WasteTrack'));
+const WasteMap = lazy(() => import('./pages/WasteMap'));
 
 function RouteScrollReset() {
   const { pathname } = useLocation();
@@ -107,17 +110,19 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/chat" element={<Chat />} />
               <Route path="/checkin" element={<CheckIn />} />
-              <Route path="/progress" element={<SadayaCerdas />} />
+              <Route path="/progress" element={<Navigate to="/quiz" replace />} />
               <Route path="/destinations" element={<Navigate to="/home" replace />} />
-              <Route path="/scan" element={<Scan />} />
+              <Route path="/scan" element={<WasteScan />} />
               <Route path="/game" element={<SadayaPlay />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/education" element={<Education />} />
               <Route path="/yowana" element={<Yowana />} />
-              <Route path="/checklist" element={<Navigate to="/home" replace />} />
+              <Route path="/checklist" element={<WasteSort />} />
               <Route path="/travel-game" element={<Navigate to="/home" replace />} />
-              <Route path="/tracking" element={<Navigate to="/home" replace />} />
+              <Route path="/tracking" element={<WasteTrack />} />
+              <Route path="/quiz" element={<SadayaCerdas />} />
+              <Route path="/map" element={<WasteMap />} />
               <Route path="/" element={<Navigate to="/home" replace />} />
             </Routes>
           </Suspense>

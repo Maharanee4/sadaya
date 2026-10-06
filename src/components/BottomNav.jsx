@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Home, MessageSquare, BookOpen, GraduationCap, UsersRound } from 'lucide-react';
+import { Home, BookOpen, GraduationCap, Recycle, ScanLine } from 'lucide-react';
 import './BottomNav.css';
 
 const BottomNav = () => {
@@ -26,33 +26,33 @@ const BottomNav = () => {
             </NavLink>
 
             <NavLink
-                to="/chat"
+                to="/scan"
                 className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             >
                 <div className="icon-container">
-                    <MessageSquare size={22} />
+                    <ScanLine size={22} />
                 </div>
-                <span>TEMAN BALI</span>
+                <span>BALI SCAN</span>
             </NavLink>
 
             <NavLink
-                to="/yowana"
+                to="/checklist"
                 className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             >
                 <div className="icon-container">
-                    <UsersRound size={22} />
+                    <Recycle size={22} />
                 </div>
-                <span>BALI YOWANA</span>
+                <span>BALI PILAH</span>
             </NavLink>
 
             <NavLink
-                to="/progress"
+                to="/quiz"
                 className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             >
                 <div className="icon-container">
                     <BookOpen size={22} />
                 </div>
-                <span>BALI CERDAS</span>
+                <span>BALI QUIZ</span>
             </NavLink>
         </nav>
     );

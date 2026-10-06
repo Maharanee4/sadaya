@@ -1,87 +1,87 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, BookOpen, GraduationCap, HeartPulse, Lightbulb, ShieldCheck, Trophy, UsersRound } from 'lucide-react';
+import { ArrowLeft, BookOpen, GraduationCap, Lightbulb, Recycle, ShieldCheck, Trophy, UsersRound } from 'lucide-react';
 import './Education.css';
 
 const topics = [
     {
-        icon: <Lightbulb size={23} />, color: 'gold', category: 'Perencanaan masa depan',
-        title: 'Mimpimu layak direncanakan',
-        summary: 'Mulai dari hal yang kamu sukai, lalu susun langkah kecil untuk mencapainya.',
-        body: 'Coba tuliskan tujuan yang ingin kamu capai dalam satu, tiga, dan lima tahun. Cari tahu keterampilan atau pendidikan yang dibutuhkan, pecah tujuan besar menjadi langkah sederhana, dan bicarakan rencanamu dengan orang dewasa yang kamu percaya. Rencana boleh berubah seiring kamu belajar.'
-    },
-    {
-        icon: <HeartPulse size={23} />, color: 'pink', category: 'Kesehatan reproduksi',
-        title: 'Kenali dan jaga kesehatan reproduksi',
-        summary: 'Memahami perubahan tubuh dan batasan diri adalah bagian dari merawat kesehatan.',
-        body: 'Masa remaja membawa perubahan fisik dan emosi yang berbeda pada setiap orang. Cari informasi dari tenaga kesehatan atau sumber tepercaya, jaga kebersihan organ reproduksi, dan ingat bahwa setiap orang berhak atas privasi serta batasan tubuhnya. Kamu boleh bertanya tanpa merasa malu.'
-    },
-    {
-        icon: <UsersRound size={23} />, color: 'violet', category: 'Kesiapan keluarga',
-        title: 'Keluarga membutuhkan kesiapan',
-        summary: 'Membangun keluarga melibatkan tanggung jawab, komunikasi, kesehatan, dan dukungan.',
-        body: 'Kesiapan berkeluarga bukan hanya soal usia atau perasaan. Dibutuhkan kematangan emosi, kemampuan berkomunikasi dan menyelesaikan masalah, pemahaman kesehatan, serta kesiapan menjalankan tanggung jawab bersama. Tidak perlu terburu-buru mengambil keputusan besar.'
-    },
-    {
-        icon: <ShieldCheck size={23} />, color: 'orange', category: 'Dampak perkawinan usia muda',
-        title: 'Pernikahan dini: pahami kesiapan dan dampaknya',
-        summary: 'Lihat dampak pada kesehatan, pendidikan, emosi, relasi, dan pilihan masa depan secara utuh.',
+        icon: <Recycle size={23} />, color: 'green', category: 'Kenali jenis sampah',
+        title: 'Organik, nonorganik, dan residu: apa bedanya?',
+        summary: 'Pelajari ciri dasar dan contoh benda yang sering ditemukan di kelas atau rumah.',
         sections: [
-            { heading: 'Apa yang dimaksud dan mengapa perlu dipahami?', text: 'Istilah pernikahan dini sering dipakai untuk perkawinan yang berlangsung ketika seseorang masih terlalu muda atau belum siap menjalani tanggung jawabnya. Usia saja tidak menceritakan seluruh keadaan, tetapi masa remaja adalah masa berkembang: pendidikan, kesehatan, identitas, dan kemampuan mengambil keputusan masih perlu didukung. Karena itu, keputusan besar perlu bebas dari paksaan dan dipertimbangkan dengan matang.' },
-            { heading: 'Dampak yang mungkin terjadi', text: 'Kehamilan pada usia remaja berkaitan dengan risiko kesehatan yang lebih tinggi bagi ibu dan bayi. Tanggung jawab rumah tangga dan pengasuhan juga dapat menyulitkan seseorang melanjutkan sekolah, menjaga pertemanan, mengembangkan keterampilan, atau memperoleh penghasilan. Perubahan besar yang datang tanpa dukungan dapat menimbulkan stres dan rasa terisolasi. Dampak ini tidak otomatis terjadi pada setiap orang; dukungan keluarga, layanan kesehatan, pendidikan, dan perlindungan sangat berarti.' },
-            { heading: 'Dampak dapat saling berkaitan', text: 'Berhenti atau sering absen sekolah dapat mengurangi kesempatan belajar dan bekerja; ketergantungan ekonomi kemudian dapat membuat pilihan seseorang makin terbatas. Beban pengasuhan yang tidak dibagi adil, konflik, stigma, atau kekerasan juga bisa memperberat tekanan. Ini adalah jalur risiko yang dipengaruhi banyak faktor, bukan nasib yang pasti. Dukungan untuk tetap belajar, layanan kesehatan yang tepat, pengasuhan bersama, dan lingkungan tanpa stigma membantu melindungi kesejahteraan.' },
-            { heading: 'Kesiapan bukan sekadar pesta atau rasa sayang', text: 'Kesiapan mencakup kematangan emosi, kemampuan menyelesaikan konflik tanpa kekerasan, pembagian tanggung jawab yang adil, kesehatan, rencana pendidikan dan ekonomi, serta dukungan yang aman. Tanyakan: apakah keputusan ini benar-benar pilihan sendiri? Apakah kedua pihak dapat berkata tidak tanpa takut? Apakah ada rencana ketika menghadapi masalah?' },
-            { heading: 'Jika ada tekanan', text: 'Kamu berhak meminta waktu, bertanya, dan mencari pendamping. Bicarakan dengan orang dewasa tepercaya, guru atau konselor, tenaga kesehatan, atau layanan perlindungan. Jangan menyalahkan atau mempermalukan seseorang yang sudah menikah atau sedang menghadapi kehamilan; fokus pada keselamatan, kesehatan, pendidikan, dan dukungan yang tersedia.' },
+            { heading: 'Sampah organik', text: 'Berasal dari sisa makhluk hidup dan umumnya mudah terurai, seperti sisa buah, sayur, makanan, daun, dan ranting kecil. Pisahkan dari kemasan agar bahan organik lebih mudah dikelola, misalnya melalui kompos jika tersedia.' },
+            { heading: 'Sampah nonorganik', text: 'Banyak berupa bahan seperti botol plastik, kaleng, kaca, atau kertas yang dapat digunakan kembali atau didaur ulang jika kondisinya sesuai. Kosongkan, bilas bila perlu, dan keringkan kemasan sebelum dikumpulkan. Tidak semua benda nonorganik diterima setiap fasilitas; tanyakan aturan bank sampah atau pengelola setempat.' },
+            { heading: 'Sampah residu', text: 'Sisa yang tidak dapat digunakan kembali atau belum diterima untuk didaur ulang oleh fasilitas di sekitar kita. Contohnya bisa berupa tisu kotor atau kemasan campuran yang sulit dipisahkan. Jenis yang diterima dapat berbeda antarwilayah, jadi ikuti panduan sekolah dan layanan sampah setempat.' },
+            { heading: 'Bagaimana dengan baterai dan barang elektronik?', text: 'Baterai, lampu, dan barang elektronik rusak perlu penanganan khusus. Jangan otomatis memasukkannya ke wadah organik, nonorganik, atau residu. Simpan dengan aman dan tanyakan kepada guru atau pengelola sampah setempat ke mana benda tersebut harus diserahkan.' },
         ],
-        sources: [{ label: 'WHO — Kehamilan remaja', url: 'https://www.who.int/news-room/fact-sheets/detail/adolescent-pregnancy' }, { label: 'UNICEF — Perkawinan anak', url: 'https://www.unicef.org/protection/child-marriage' }]
+        sources: [{ label: 'SIPSN — Sistem Informasi Pengelolaan Sampah Nasional', url: 'https://sipsn.menlhk.go.id/' }, { label: 'SIMBA — Sistem Informasi Manajemen Bank Sampah', url: 'https://simba.menlhk.go.id/' }]
     },
     {
-        icon: <HeartPulse size={23} />, color: 'pink', category: 'Hubungan dan kesehatan reproduksi',
-        title: 'Seks bebas: pahami risiko, persetujuan, dan perlindungan',
-        summary: 'Bahas aktivitas seksual berisiko tanpa stigma, termasuk kehamilan, IMS, tekanan, dan pilihan mencari bantuan.',
+        icon: <ShieldCheck size={23} />, color: 'blue', category: 'Langkah memilah',
+        title: 'Empat langkah mudah memilah sampah',
+        summary: 'Mulai dari mengenali bahan sampai memastikan sampah masuk ke wadah yang tepat.',
         sections: [
-            { heading: 'Apa maksudnya dalam materi ini?', text: 'Istilah “seks bebas” sering digunakan secara menghakimi dan artinya bisa berbeda-beda. Di sini, kita membahas aktivitas seksual yang terjadi tanpa kesiapan, informasi, persetujuan yang bebas, atau perlindungan yang memadai. Tujuannya bukan memberi label kepada orang, melainkan memahami kesehatan, batas diri, tanggung jawab, dan cara mencegah bahaya.' },
-            { heading: 'Risiko kesehatan dan kesejahteraan', text: 'Aktivitas seksual dapat menyebabkan kehamilan yang tidak direncanakan dan infeksi menular seksual (IMS), termasuk HIV. Sebagian IMS tidak menunjukkan gejala, sehingga merasa sehat bukan bukti pasti bebas infeksi. Kehamilan remaja dapat membawa risiko kesehatan dan dampak sosial. Tekanan, rasa takut, penyesalan, atau penyebaran foto intim tanpa izin juga dapat berdampak pada kesejahteraan dan keselamatan.' },
-            { heading: 'Persetujuan dan batas diri', text: 'Persetujuan harus diberikan secara sadar, sukarela, spesifik, dan dapat ditarik kapan saja. Diam, takut, terpaksa, sedang tidak sadar, atau pernah setuju sebelumnya bukan persetujuan untuk saat ini. Tekanan pasangan atau teman, ancaman, imbalan, dan perbedaan kuasa perlu dianggap serius. Kamu berhak berkata “tidak”, berhenti, dan mencari pertolongan.' },
-            { heading: 'Membuat pilihan yang lebih aman', text: 'Menunda aktivitas seksual adalah pilihan yang sepenuhnya sah. Jika memiliki pertanyaan atau sudah mengalami situasi berisiko, cari informasi dari tenaga kesehatan yang kompeten dan tanyakan layanan yang sesuai untuk remaja. Kondom yang digunakan dengan benar dan konsisten membantu mengurangi risiko banyak IMS dan kehamilan, tetapi tidak menghilangkan semua risiko. Jangan mengandalkan mitos, pesan berantai, atau saran teman sebagai pengganti layanan kesehatan.' },
-            { heading: 'Mengenali informasi keliru', text: 'Penampilan sehat tidak bisa memastikan seseorang bebas IMS; banyak IMS tidak menimbulkan gejala. Mencuci tubuh, buang air kecil, atau memakai ramuan setelah aktivitas seksual juga tidak mencegah kehamilan atau IMS. Berbagai metode kontrasepsi dapat mencegah kehamilan, tetapi kondom adalah metode yang juga membantu mencegah IMS. Tenaga kesehatan dapat menjelaskan pemeriksaan dan pilihan yang sesuai.' },
-            { heading: 'Jika ada kekhawatiran kehamilan atau IMS', text: 'Jangan mencoba mendiagnosis sendiri atau mengonsumsi obat dari sumber yang tidak jelas. Bicaralah secepatnya dengan tenaga kesehatan agar mendapat informasi tentang pemeriksaan, waktu tindak lanjut, dan pilihan penanganan yang tepat untuk situasimu. Kamu layak dilayani dengan hormat dan dijaga kerahasiaannya sesuai aturan layanan.' },
-            { heading: 'Bila sesuatu terjadi tanpa persetujuan', text: 'Itu bukan salah korban. Utamakan keselamatan, cari orang dewasa tepercaya, tenaga kesehatan, atau layanan perlindungan. Jangan menyebarkan gambar atau cerita pribadi korban. Jika ada bahaya langsung, pergi ke tempat aman dan hubungi layanan darurat setempat.' },
-        ],
-        sources: [{ label: 'WHO — Infeksi menular seksual', url: 'https://www.who.int/news-room/fact-sheets/detail/sexually-transmitted-infections-(stis)' }, { label: 'WHO — Pendidikan seksualitas komprehensif', url: 'https://www.who.int/news-room/fact-sheets/detail/comprehensive-sexuality-education' }]
+            { heading: '1. Periksa bendanya', text: 'Lihat bahan dan kondisinya. Sisa makanan berbeda dari kemasannya; pisahkan keduanya sebelum membuang.' },
+            { heading: '2. Pisahkan sesuai jenis', text: 'Masukkan sisa makanan dan daun ke wadah organik. Kumpulkan kemasan yang bersih dan dapat didaur ulang di wadah nonorganik. Masukkan sisa yang tidak dapat dimanfaatkan ke wadah residu sesuai aturan sekolah.' },
+            { heading: '3. Kosongkan dan keringkan', text: 'Tuang sisa minuman, bersihkan kemasan seperlunya, lalu keringkan sebelum disetor sebagai bahan daur ulang. Kemasan yang masih penuh atau sangat kotor dapat mengotori bahan lain.' },
+            { heading: '4. Cek petunjuk di lokasi', text: 'Warna dan jenis wadah tidak selalu sama di setiap tempat. Baca label tempat sampah di sekolah dan tanyakan kepada guru jika ragu. Untuk baterai, lampu, elektronik, dan benda berbahaya, gunakan jalur pengumpulan khusus.' },
+        ]
     },
     {
-        icon: <UsersRound size={23} />, color: 'violet', category: 'Relasi dan kehidupan bersama',
-        title: 'Living together: pahami konteks, tanggung jawab, dan risikonya',
-        summary: 'Mengenal hidup bersama pasangan, dinamika relasi, keselamatan, keluarga, budaya, dan masa depan tanpa menghakimi.',
+        icon: <Lightbulb size={23} />, color: 'gold', category: 'Contoh di sekolah',
+        title: 'Latihan memilah dari kegiatan sehari-hari',
+        summary: 'Kenali jenis sampah dari bekal, kelas, kantin, dan kegiatan bersama.',
         sections: [
-            { heading: 'Apa itu living together?', text: 'Living together atau kohabitasi biasanya berarti pasangan tinggal serumah tanpa ikatan perkawinan. Pengalaman setiap pasangan berbeda dan istilah ini tidak boleh dijadikan alasan untuk menghakimi seseorang. Memahaminya berarti melihat situasi nyata: usia dan kesiapan, persetujuan, alasan tinggal bersama, relasi kuasa, kondisi ekonomi, norma keluarga dan adat, serta pilihan yang tersedia.' },
-            { heading: 'Bedakan bentuk tinggal bersama dan sumber risikonya', text: 'Risiko kehamilan atau IMS berasal dari aktivitas seksual tertentu dan kurangnya perlindungan, bukan semata-mata karena dua orang tinggal serumah. Sebaliknya, tinggal bersama dapat menimbulkan tantangan praktis seperti biaya dan pekerjaan rumah, privasi, batas pribadi, keselamatan, konflik, tempat tinggal alternatif, dan akses dukungan. Ketergantungan ekonomi atau tempat tinggal dapat membuat seseorang sulit keluar dari hubungan yang tidak aman. Pengalaman dan dampak tiap orang tidak sama.' },
-            { heading: 'Dampak pada rencana dan kesejahteraan', text: 'Perubahan tempat tinggal dapat memengaruhi jarak ke sekolah atau pekerjaan, waktu belajar, pergaulan, pembagian kerja domestik, dan hubungan dengan keluarga. Jika pasangan tidak memiliki sumber daya atau dukungan yang cukup, tekanan finansial dan konflik dapat meningkat. Stigma atau pertentangan dengan keluarga/adat juga dapat membuat seseorang menarik diri. Dampak ini dipengaruhi keadaan dan respons lingkungan; dialog aman dan dukungan yang tidak mempermalukan dapat mengurangi isolasi.' },
-            { heading: 'Kesiapan, komunikasi, dan perlindungan', text: 'Sebelum mengambil keputusan besar, bicarakan harapan, pembagian tanggung jawab, rencana pendidikan atau pekerjaan, uang, batasan, cara menyelesaikan konflik, dan langkah jika hubungan berakhir. Pastikan tidak ada paksaan dan masing-masing punya akses ke teman, keluarga, dokumen, serta bantuan. Bila ada kekerasan, kontrol, ancaman, atau ketakutan, cari bantuan dari orang tepercaya atau layanan perlindungan.' },
-            { heading: 'Nilai keluarga dan budaya Bali', text: 'Di Bali, keputusan mengenai relasi dapat terkait erat dengan keluarga, adat, banjar, dan tanggung jawab sosial. Nilai kebersamaan dan saling menghormati dapat menjadi sumber dukungan. Ajak keluarga atau tokoh yang dipercaya berdialog tanpa mempermalukan pihak tertentu. Hormati keragaman pengalaman, jaga privasi, dan utamakan keselamatan serta martabat setiap orang.' },
-            { heading: 'Gunakan pertanyaan refleksi', text: 'Apakah keputusan ini benar-benar saya inginkan? Apakah saya bebas mengubah pikiran? Siapa yang dapat saya hubungi jika merasa tidak aman? Apakah keputusan ini mendukung tujuan belajar, kerja, kesehatan, dan masa depan saya? Tidak perlu terburu-buru menjawab; mencari informasi dan dukungan adalah langkah yang bijak.' },
-        ],
-        sources: [{ label: 'UNFPA Asia-Pasifik — Perkawinan, penyatuan, dan kehamilan remaja', url: 'https://asiapacific.unfpa.org/en/news/mothers-too-young-understanding-patterns-child-marriage-early-union-and-teen-pregnancy' }]
+            { heading: 'Setelah makan bekal', text: 'Sisa kulit pisang dan nasi termasuk contoh sampah organik. Bungkus yang dapat didaur ulang dikosongkan dan dipisahkan; cek label wadah sekolah.' },
+            { heading: 'Setelah memakai buku atau kertas', text: 'Kertas yang kering dan bersih bisa dikumpulkan untuk digunakan kembali atau disalurkan ke bank sampah, sesuai kebijakan sekolah. Kertas basah atau terkena makanan perlu dipisahkan karena tidak mudah didaur ulang.' },
+            { heading: 'Saat mengadakan acara', text: 'Sediakan wadah berlabel yang jelas, kurangi barang sekali pakai, dan tunjuk teman untuk membantu mengingatkan dengan sopan. Setelah acara, periksa apakah isi wadah sudah dipilah dengan benar.' },
+            { heading: 'Kalau masih ragu', text: 'Jangan menebak warna tempat sampah. Baca label, minta bantuan guru atau petugas kebersihan, dan ikuti kebiasaan pengelolaan sampah di sekolah.' },
+        ]
     },
     {
-        icon: <BookOpen size={23} />, color: 'blue', category: 'Hak pendidikan',
-        title: 'Pendidikan adalah hakmu',
-        summary: 'Setiap remaja berhak belajar, berkembang, dan merencanakan cita-citanya.',
-        body: 'Pendidikan membantu kamu memperoleh pengetahuan, keterampilan, dan lebih banyak pilihan untuk masa depan. Kamu berhak mendapatkan kesempatan belajar dan dukungan untuk tetap bersekolah. Jika menghadapi hambatan, ceritakan kepada guru, konselor, keluarga, atau layanan perlindungan anak yang kamu percaya.'
+        icon: <ShieldCheck size={23} />, color: 'blue', category: 'Dampak sampah tercampur',
+        title: 'Apa akibatnya jika sampah tidak dipilah?',
+        summary: 'Ketahui dampak langsung sampah tercampur bagi kebersihan, kesehatan, dan proses pengolahan.',
+        sections: [
+            { heading: 'Bahan daur ulang ikut kotor', text: 'Sisa makanan dan cairan yang bercampur dengan kertas atau kemasan dapat membuat bahan yang semula bisa dimanfaatkan menjadi kotor atau sulit diproses. Akibatnya, petugas perlu memilah ulang dan sebagian bahan mungkin berakhir sebagai residu.' },
+            { heading: 'Beban pengelolaan bertambah', text: 'Sampah campuran membutuhkan lebih banyak waktu dan tenaga untuk dipilah. Jika pemilahan di sumbernya tidak dilakukan, pengelolaan di sekolah maupun fasilitas setempat menjadi lebih sulit.' },
+            { heading: 'Risiko kebersihan dan lingkungan', text: 'Sampah organik yang menumpuk dapat menimbulkan bau dan mengundang hewan pengganggu. Sampah yang tercecer juga dapat menyumbat saluran air atau terbawa ke sungai dan laut.' },
+            { heading: 'Sampah khusus bisa membahayakan', text: 'Baterai, lampu, dan barang elektronik yang tercampur dengan sampah biasa dapat berisiko bagi orang yang mengelolanya. Pisahkan dan tanyakan jalur penanganan khusus kepada guru atau petugas.' },
+        ],
+        sources: [{ label: 'SIPSN — Sistem Informasi Pengelolaan Sampah Nasional', url: 'https://sipsn.menlhk.go.id/' }]
+    },
+    {
+        icon: <UsersRound size={23} />, color: 'violet', category: 'Dampak untuk masa depan',
+        title: 'Mengapa kebiasaan memilah penting untuk masa depan?',
+        summary: 'Kebiasaan kecil di rumah dan sekolah membantu membangun lingkungan yang lebih bersih dan bertanggung jawab.',
+        sections: [
+            { heading: 'Mengurangi sampah yang berakhir di tempat pemrosesan', text: 'Saat sisa organik dikelola terpisah dan bahan yang dapat didaur ulang dikumpulkan sesuai aturan, lebih sedikit material yang harus dibuang sebagai campuran. Hasilnya bergantung pada kebiasaan memilah dan fasilitas yang tersedia.' },
+            { heading: 'Menjaga lingkungan sekitar', text: 'Mencegah sampah tercecer membantu menjaga halaman, selokan, sungai, dan ruang publik tetap bersih. Ini menjadi bagian dari tanggung jawab bersama agar lingkungan nyaman digunakan generasi berikutnya.' },
+            { heading: 'Membiasakan pola hidup bijak', text: 'Memilah membuat kita lebih sadar berapa banyak barang yang dipakai dan dibuang. Kita bisa melanjutkannya dengan mengurangi kemasan sekali pakai, menggunakan kembali barang yang masih layak, dan mengambil makanan secukupnya.' },
+            { heading: 'Mulai dari aksi yang realistis', text: 'Pilih satu kebiasaan yang bisa dilakukan konsisten: pisahkan sisa makanan, bawa botol isi ulang, atau siapkan wadah berlabel di kelas. Ajak teman dengan sopan dan ikuti sistem pengelolaan yang benar-benar tersedia di sekitar.' },
+        ],
+        sources: [{ label: 'SIPSN — Sistem Informasi Pengelolaan Sampah Nasional', url: 'https://sipsn.menlhk.go.id/' }, { label: 'SIMBA — Sistem Informasi Manajemen Bank Sampah', url: 'https://simba.menlhk.go.id/' }]
+    },
+    {
+        icon: <UsersRound size={23} />, color: 'violet', category: 'Kurangi dan gunakan kembali',
+        title: 'Kenali 3R: kurangi, gunakan kembali, daur ulang',
+        summary: 'Pemilahan membantu, tetapi mengurangi barang sekali pakai juga penting.',
+        sections: [
+            { heading: 'Reduce — kurangi', text: 'Pilih barang yang tidak menghasilkan banyak kemasan, bawa botol minum dan kotak makan pakai ulang, serta ambil makanan secukupnya.' },
+            { heading: 'Reuse — gunakan kembali', text: 'Gunakan kembali barang yang masih aman dan berfungsi, misalnya memakai sisi kosong kertas untuk catatan atau membawa tas belanja sendiri.' },
+            { heading: 'Recycle — daur ulang', text: 'Pisahkan bahan yang diterima fasilitas daur ulang dan setorkan dalam keadaan sesuai petunjuk. Pemilahan membantu menjaga bahan tidak tercampur, tetapi daur ulang bergantung pada fasilitas yang tersedia.' },
+        ],
+        sources: [{ label: 'SIMBA — Sistem Informasi Manajemen Bank Sampah', url: 'https://simba.menlhk.go.id/' }]
     }
 ];
 
 const questions = [
-    { question: 'Apa langkah awal yang baik untuk merencanakan masa depan?', options: ['Menuliskan tujuan dan langkah kecil', 'Mengikuti semua pilihan teman', 'Menunggu sampai semuanya pasti'], answer: 0, explanation: 'Tujuan yang jelas dan langkah kecil membuat rencana lebih mudah dimulai dan disesuaikan.' },
-    { question: 'Kepada siapa kamu dapat bertanya tentang kesehatan reproduksi?', options: ['Sumber apa pun tanpa memeriksa kebenarannya', 'Tenaga kesehatan atau sumber tepercaya', 'Tidak boleh bertanya kepada siapa pun'], answer: 1, explanation: 'Tenaga kesehatan dan sumber tepercaya dapat memberi informasi yang tepat dan aman.' },
-    { question: 'Manakah yang termasuk kesiapan berkeluarga?', options: ['Hanya memiliki pesta yang direncanakan', 'Kematangan emosi dan tanggung jawab bersama', 'Mengambil keputusan karena tekanan orang lain'], answer: 1, explanation: 'Keluarga membutuhkan kesiapan emosi, komunikasi, kesehatan, dan tanggung jawab.' },
-    { question: 'Apa salah satu dampak perkawinan usia muda yang perlu dipertimbangkan?', options: ['Selalu membuat sekolah lebih mudah', 'Dapat menghambat kelanjutan pendidikan', 'Tidak memiliki dampak apa pun'], answer: 1, explanation: 'Tanggung jawab baru dapat membatasi kesempatan untuk melanjutkan sekolah dan mengembangkan diri.' },
-    { question: 'Apa yang dapat dilakukan jika ada hambatan untuk tetap bersekolah?', options: ['Menceritakannya kepada guru atau orang dewasa tepercaya', 'Menghadapinya sendirian', 'Berhenti mencari bantuan'], answer: 0, explanation: 'Guru, konselor, keluarga, dan layanan perlindungan dapat membantu mencari dukungan.' },
-    { question: 'Persetujuan dalam hubungan harus seperti apa?', options: ['Bebas, sadar, dan dapat ditarik kapan saja', 'Dianggap ada jika seseorang diam', 'Berlaku selamanya setelah pernah diberikan'], answer: 0, explanation: 'Setiap orang berhak mengubah pikiran dan menetapkan batasnya.' },
-    { question: 'Apa langkah yang bijak saat mendapat tekanan untuk melakukan sesuatu yang tidak diinginkan?', options: ['Mengikuti agar tidak ditinggalkan', 'Menyatakan batas, menjauh jika perlu, dan mencari bantuan tepercaya', 'Menyimpan semuanya sendiri'], answer: 1, explanation: 'Keselamatanmu penting; orang dewasa tepercaya atau layanan kesehatan dapat membantu.' },
-    { question: 'Manakah pernyataan yang tepat tentang living together?', options: ['Semua pengalaman dan risikonya sama', 'Perlu memahami konteks, kesiapan, persetujuan, keselamatan, dan tanggung jawab', 'Tidak perlu membicarakan masa depan'], answer: 1, explanation: 'Konteks tiap orang berbeda; keputusan penting perlu dipikirkan tanpa paksaan dan dengan dukungan.' },
-    { question: 'Kepada siapa mencari bantuan bila ada kekerasan atau paksaan?', options: ['Orang dewasa tepercaya, tenaga kesehatan, atau layanan perlindungan', 'Akun anonim yang meminta data pribadi', 'Tidak perlu memberi tahu siapa pun'], answer: 0, explanation: 'Cari bantuan aman dari pihak tepercaya dan jangan membagikan data sensitif ke pihak tak dikenal.' }
+    { question: 'Kulit pisang yang sudah tidak dimakan biasanya termasuk jenis apa?', options: ['Organik', 'Nonorganik', 'Residu'], answer: 0, explanation: 'Sisa buah berasal dari makhluk hidup dan umumnya mudah terurai, sehingga menjadi contoh sampah organik.' },
+    { question: 'Botol plastik kosong dan bersih sebaiknya bagaimana?', options: ['Dicampur dengan sisa makanan', 'Dipisahkan sebagai bahan nonorganik yang mungkin dapat didaur ulang', 'Selalu dianggap residu tanpa memeriksa aturan'], answer: 1, explanation: 'Botol plastik dapat dikumpulkan sebagai nonorganik bila fasilitas setempat menerimanya. Kosongkan dan ikuti petunjuk bank sampah atau sekolah.' },
+    { question: 'Apa yang perlu dilakukan pada kemasan sebelum dimasukkan ke wadah daur ulang?', options: ['Kosongkan, bersihkan seperlunya, dan keringkan', 'Biarkan berisi sisa minuman', 'Campur dengan sampah basah'], answer: 0, explanation: 'Sisa cairan dan kotoran bisa mengotori bahan lain. Ikuti petunjuk fasilitas setempat.' },
+    { question: 'Tisu yang sudah kotor dan tidak bisa dimanfaatkan lagi biasanya masuk kategori apa?', options: ['Organik', 'Nonorganik yang pasti dapat didaur ulang', 'Residu'], answer: 2, explanation: 'Tisu kotor umumnya tidak diterima untuk daur ulang dan menjadi contoh residu. Aturan lokal dapat berbeda.' },
+    { question: 'Kamu menemukan baterai bekas. Apa tindakan yang tepat?', options: ['Masukkan ke wadah khusus sesuai arahan guru atau pengelola', 'Buang bersama sisa makanan', 'Buka baterainya agar terlihat isinya'], answer: 0, explanation: 'Baterai perlu penanganan khusus. Jangan membongkar atau mencampurnya dengan sampah biasa; minta arahan orang dewasa.' },
+    { question: 'Apa yang dilakukan jika tidak yakin suatu benda termasuk jenis apa?', options: ['Baca label dan bertanya kepada guru atau petugas kebersihan', 'Memasukkan ke wadah secara acak', 'Membiarkannya di lantai'], answer: 0, explanation: 'Memeriksa label dan meminta bantuan membantu menjaga pemilahan tetap tepat dan aman.' }
 ];
 
 function Education() {
@@ -100,9 +100,9 @@ function Education() {
 
             <div className="education-content">
                 <section className="edu-banner">
-                    <span className="edu-banner-kicker">RUANG BELAJAR REMAJA</span>
-                    <h3>Kenali pilihanmu, rancang masa depanmu.</h3>
-                    <p>Pelajari kesehatan, keluarga, pendidikan, dan masa depan melalui materi singkat yang ramah remaja.</p>
+                    <span className="edu-banner-kicker">RUANG BELAJAR LINGKUNGAN</span>
+                    <h3>Kenali jenisnya, pilah dengan benar.</h3>
+                    <p>Pelajari perbedaan sampah organik, nonorganik, dan residu lewat materi serta contoh yang dekat dengan kehidupan di sekolah.</p>
                 </section>
 
                 <nav className="education-tabs" aria-label="Pilihan BALI EDU">
@@ -113,7 +113,7 @@ function Education() {
                 {activeTab === 'edukasi' ? (
                     <section className="education-section" aria-label="Materi dan artikel edukasi">
                         <div className="education-section-heading">
-                            <div><span className="section-eyebrow">MATERI & ARTIKEL SINGKAT</span><h3>Belajar sesuai kebutuhanmu</h3></div>
+                        <div><span className="section-eyebrow">MATERI & ARTIKEL SINGKAT</span><h3>Panduan memilah sampah</h3></div>
                             <span className="topic-count">{topics.length} topik</span>
                         </div>
                         <div className="articles-grid">
@@ -134,7 +134,7 @@ function Education() {
                                 );
                             })}
                         </div>
-                        <p className="education-note">Informasi ini bersifat edukatif. Untuk pertanyaan pribadi tentang kesehatan atau keselamatan, hubungi tenaga profesional atau orang dewasa tepercaya.</p>
+                        <p className="education-note">Petunjuk pemilahan bisa berbeda menurut fasilitas dan wilayah. Ikuti label tempat sampah di sekolah atau arahan pengelola setempat.</p>
                     </section>
                 ) : (
                     <section className="education-section quiz-section" aria-label="Kuis pemahaman">
