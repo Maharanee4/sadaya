@@ -94,7 +94,7 @@ function Education() {
         <main className="education-container animate-fade-in">
             <header className="page-header education-page-header">
                 <button className="icon-btn-rounded" onClick={() => navigate('/home')} aria-label="Kembali ke beranda"><ArrowLeft size={24} /></button>
-                <div className="feature-heading"><GraduationCap className="feature-heading-icon" /><h2>SADAYA EDU</h2></div>
+                <div className="feature-heading"><GraduationCap className="feature-heading-icon" /><h2>BALI EDU</h2></div>
                 <div style={{ width: 40 }} />
             </header>
 
@@ -105,7 +105,7 @@ function Education() {
                     <p>Pelajari kesehatan, keluarga, pendidikan, dan masa depan melalui materi singkat yang ramah remaja.</p>
                 </section>
 
-                <nav className="education-tabs" aria-label="Pilihan SADAYA EDU">
+                <nav className="education-tabs" aria-label="Pilihan BALI EDU">
                     <button className={activeTab === 'edukasi' ? 'active' : ''} onClick={() => setActiveTab('edukasi')}><BookOpen size={18} /> Edukasi</button>
                     <button className={activeTab === 'kuis' ? 'active' : ''} onClick={() => setActiveTab('kuis')}><Trophy size={18} /> Kuis</button>
                 </nav>
@@ -139,7 +139,7 @@ function Education() {
                 ) : (
                     <section className="education-section quiz-section" aria-label="Kuis pemahaman">
                         <div className="education-section-heading">
-                            <div><span className="section-eyebrow">CEK PEMAHAMANMU</span><h3>Kuis SADAYA EDU</h3></div>
+                            <div><span className="section-eyebrow">CEK PEMAHAMANMU</span><h3>Kuis BALI EDU</h3></div>
                             <span className="topic-count">{Object.keys(answers).length}/{questions.length} dijawab</span>
                         </div>
                         <p className="quiz-intro">Pilih jawaban yang menurutmu paling tepat. Kamu bisa mengganti jawaban kapan saja.</p>

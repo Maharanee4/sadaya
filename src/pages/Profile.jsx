@@ -182,7 +182,7 @@ const Profile = () => {
                             <CalendarDays size={20} className="icon-green" />
                         </div>
                         <div className="stat-value">{daysJoined} Hari</div>
-                        <div className="stat-label">Bersama SADAYA</div>
+                        <div className="stat-label">Bersama BALI</div>
                     </div>
                     <div className="stat-card">
                         <div className="stat-icon-wrapper bg-orange-soft">
@@ -286,7 +286,7 @@ const Profile = () => {
                         <div className="modal-content glass-card" onClick={e => e.stopPropagation()}>
                             <h3 style={{ marginBottom: '16px', color: 'var(--text-main)' }}>Keluar Akun?</h3>
                             <p style={{ marginBottom: '24px', color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.5' }}>
-                                Apakah kamu yakin ingin keluar dari {username}? Data dan progres SADAYA-mu tetap tersimpan di perangkat ini.
+                                Apakah kamu yakin ingin keluar dari {username}? Data dan progres BALI-mu tetap tersimpan di perangkat ini.
                             </p>
                             <div style={{ display: 'flex', gap: '12px' }}>
                                 <button className="btn-secondary" style={{ flex: 1 }} onClick={() => setShowLogoutConfirm(false)}>Batal</button>

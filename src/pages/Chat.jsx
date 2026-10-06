@@ -7,7 +7,7 @@ const INITIAL_MESSAGES = [
     {
         id: 1,
         sender: 'bot',
-        text: 'Halo! Aku TEMAN SADAYA. Kamu bisa bertanya tentang perencanaan masa depan, kesehatan reproduksi, batasan dan persetujuan, serta dampak pernikahan dini. Aku akan menjawab dengan informasi yang ramah remaja dan tanpa menghakimi.',
+        text: 'Halo! Aku TEMAN BALI. Kamu bisa bertanya tentang perencanaan masa depan, kesehatan reproduksi, batasan dan persetujuan, serta dampak pernikahan dini. Aku akan menjawab dengan informasi yang ramah remaja dan tanpa menghakimi.',
     }
 ];
 
@@ -51,7 +51,7 @@ const Chat = () => {
                     if (userData.chatHistory && userData.chatHistory.length > 0 && !isLegacyTravelChat) {
                         const migratedHistory = userData.chatHistory.map((message, index) => (
                             index === 0 && message.sender === 'bot'
-                                ? { ...message, text: message.text.replaceAll('Konsul Remaja Pintar', 'TEMAN SADAYA') }
+                                ? { ...message, text: message.text.replaceAll('Konsul Remaja Pintar', 'TEMAN BALI') }
                                 : message
                         ));
                         setMessages(migratedHistory);
@@ -65,7 +65,7 @@ const Chat = () => {
                             {
                                 id: 1,
                                 sender: 'bot',
-                                text: `Halo ${username}! Aku TEMAN SADAYA. Kamu bisa bertanya tentang perencanaan masa depan, kesehatan reproduksi, batasan dan persetujuan, serta dampak pernikahan dini. Aku akan menjawab dengan informasi yang ramah remaja dan tanpa menghakimi.`,
+                                text: `Halo ${username}! Aku TEMAN BALI. Kamu bisa bertanya tentang perencanaan masa depan, kesehatan reproduksi, batasan dan persetujuan, serta dampak pernikahan dini. Aku akan menjawab dengan informasi yang ramah remaja dan tanpa menghakimi.`,
                             }
                         ];
                         setMessages(personalizedGreeting);
@@ -128,7 +128,7 @@ const Chat = () => {
                 content: userText
             });
 
-            const systemPrompt = "Kamu adalah TEMAN SADAYA, pendamping informasi yang ramah, akurat, tidak menghakimi, dan menggunakan bahasa Indonesia yang mudah dipahami remaja. Fokus konsultasi: perencanaan masa depan, pernikahan dini dan dampaknya pada pendidikan, kesehatan, hak serta pilihan hidup; kesehatan reproduksi; persetujuan, batasan diri, tekanan pasangan, dan pencegahan risiko aktivitas seksual. Jawab sekitar 3-6 kalimat, ringkas tetapi jelas. Gunakan bahasa yang sesuai usia; jangan memberi konten erotis, deskripsi seksual eksplisit, atau instruksi seksual eksplisit. Jangan mempermalukan, menakut-nakuti, menyalahkan, atau memaksa pengguna. Berikan informasi kesehatan umum berdasarkan sumber tepercaya, jangan mendiagnosis atau meresepkan. Jika pengguna mengalami paksaan, kekerasan, eksploitasi, atau merasa tidak aman, validasi bahwa itu bukan salahnya dan sarankan menghubungi orang dewasa tepercaya, tenaga kesehatan, atau layanan perlindungan setempat; prioritaskan keselamatan segera. Untuk pertanyaan hukum atau medis yang spesifik, jelaskan batas kepastian dan arahkan ke tenaga profesional/sumber resmi terkini. Jangan membuat klaim hukum atau medis yang tidak dapat dipastikan. Gunakan paling banyak satu emoji. Jika pertanyaan di luar topik, jawab singkat lalu arahkan kembali dengan sopan.";
+            const systemPrompt = "Kamu adalah TEMAN BALI, pendamping informasi yang ramah, akurat, tidak menghakimi, dan menggunakan bahasa Indonesia yang mudah dipahami remaja. Fokus konsultasi: perencanaan masa depan, pernikahan dini dan dampaknya pada pendidikan, kesehatan, hak serta pilihan hidup; kesehatan reproduksi; persetujuan, batasan diri, tekanan pasangan, dan pencegahan risiko aktivitas seksual. Jawab sekitar 3-6 kalimat, ringkas tetapi jelas. Gunakan bahasa yang sesuai usia; jangan memberi konten erotis, deskripsi seksual eksplisit, atau instruksi seksual eksplisit. Jangan mempermalukan, menakut-nakuti, menyalahkan, atau memaksa pengguna. Berikan informasi kesehatan umum berdasarkan sumber tepercaya, jangan mendiagnosis atau meresepkan. Jika pengguna mengalami paksaan, kekerasan, eksploitasi, atau merasa tidak aman, validasi bahwa itu bukan salahnya dan sarankan menghubungi orang dewasa tepercaya, tenaga kesehatan, atau layanan perlindungan setempat; prioritaskan keselamatan segera. Untuk pertanyaan hukum atau medis yang spesifik, jelaskan batas kepastian dan arahkan ke tenaga profesional/sumber resmi terkini. Jangan membuat klaim hukum atau medis yang tidak dapat dipastikan. Gunakan paling banyak satu emoji. Jika pertanyaan di luar topik, jawab singkat lalu arahkan kembali dengan sopan.";
 
             const data = await chatCompletion({
                 messages: [
@@ -200,7 +200,7 @@ const Chat = () => {
                 <div className="chat-header-left">
                     <div className="chat-logo-mini">🎒</div>
                         <div className="chat-header-text">
-                        <h2>TEMAN SADAYA</h2>
+                        <h2>TEMAN BALI</h2>
                         <p>Pernikahan dini, seks bebas, dan kesehatan reproduksi</p>
                     </div>
                 </div>

@@ -468,10 +468,10 @@ const AdminDatabase = () => {
             <div className="admin-header">
                 <div className="admin-logo-area">
                     <div className="admin-logo">
-                        <img src={sadayaLogo} alt="Logo SADAYA dengan gapura Bali dan tempat sampah terpilah" />
+                        <img src={sadayaLogo} alt="Logo BALI dengan gapura Bali dan tempat sampah terpilah" />
                     </div>
                     <div>
-                        <h1>SADAYA Admin Portal</h1>
+                        <h1>BALI Admin Portal</h1>
                         <p>Database & Analytics Dashboard</p>
                     </div>
                 </div>

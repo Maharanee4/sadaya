@@ -79,7 +79,7 @@ export default function SadayaCerdas() {
   const restart = () => { setQuestionIndex(0); setAnswer(null); setScore(0); setComplete(false); };
 
   return <main className="cerdas-page animate-fade-in">
-    <header className="cerdas-header"><button className="icon-btn-rounded" onClick={() => navigate('/home')} aria-label="Kembali ke beranda"><ArrowLeft size={20}/></button><div className="cerdas-brand"><span><BookOpen size={19}/></span><strong>SADAYA CERDAS</strong></div><span className="cerdas-header-spacer"/></header>
+    <header className="cerdas-header"><button className="icon-btn-rounded" onClick={() => navigate('/home')} aria-label="Kembali ke beranda"><ArrowLeft size={20}/></button><div className="cerdas-brand"><span><BookOpen size={19}/></span><strong>BALI CERDAS</strong></div><span className="cerdas-header-spacer"/></header>
     <section className="cerdas-hero"><span className="cerdas-eyebrow"><Sparkles size={15}/> BELAJAR DENGAN TENANG, PILIH DENGAN SADAR</span><h1>Kenali dampak.<br/><span>Rancang masa depanmu.</span></h1><p>Kuis edukatif tentang living together, pernikahan dini, dan kesehatan reproduksi. Pahami risikonya tanpa menghakimi dan tanpa konten eksplisit.</p><div className="cerdas-safe-note"><ShieldCheck size={17}/> Jawabanmu tidak disimpan dan skor hanya untuk refleksi pribadi.</div></section>
     <nav className="cerdas-quiz-tabs" aria-label="Pilih topik kuis">
       {Object.entries(QUIZZES).map(([key, item]) => { const Icon = item.icon; return <button key={key} className={activeQuiz === key ? 'active' : ''} onClick={() => chooseQuiz(key)}><Icon size={18}/><span>{item.title}</span></button>; })}

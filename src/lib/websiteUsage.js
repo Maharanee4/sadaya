@@ -1,8 +1,8 @@
 const RANKS = [
-  { minUses: 1, label: 'SADAYA Pemula' },
-  { minUses: 5, label: 'SADAYA Aktif' },
-  { minUses: 15, label: 'SADAYA Tumbuh' },
-  { minUses: 30, label: 'SADAYA Berdaya' },
+  { minUses: 1, label: 'BALI Pemula' },
+  { minUses: 5, label: 'BALI Aktif' },
+  { minUses: 15, label: 'BALI Tumbuh' },
+  { minUses: 30, label: 'BALI Berdaya' },
 ];
 
 const getLocalDate = (date = new Date()) => {
@@ -10,7 +10,7 @@ const getLocalDate = (date = new Date()) => {
 };
 
 export const getSadayaRank = (websiteUsageCount = 0) => {
-  const current = [...RANKS].reverse().find((rank) => websiteUsageCount >= rank.minUses) || { minUses: 0, label: 'SADAYA Pemula' };
+  const current = [...RANKS].reverse().find((rank) => websiteUsageCount >= rank.minUses) || { minUses: 0, label: 'BALI Pemula' };
   const next = RANKS.find((rank) => rank.minUses > websiteUsageCount) || null;
   return { ...current, next, usageCount: websiteUsageCount };
 };

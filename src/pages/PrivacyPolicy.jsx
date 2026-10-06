@@ -10,12 +10,12 @@ const PrivacyPolicy = () => {
         <button className="icon-btn-rounded" onClick={() => navigate(-1)}>
           <ArrowLeft size={20} />
         </button>
-        <div className="feature-heading"><ShieldCheck className="feature-heading-icon" /><h2 style={{ color: 'var(--text-main)' }}>Kebijakan Privasi SADAYA</h2></div>
+        <div className="feature-heading"><ShieldCheck className="feature-heading-icon" /><h2 style={{ color: 'var(--text-main)' }}>Kebijakan Privasi BALI</h2></div>
       </header>
 
       <div className="glass-card" style={{ textAlign: 'left', lineHeight: '1.7', color: 'var(--text-main)' }}>
         <p style={{ color: 'var(--text-muted)', marginBottom: '16px' }}>
-          Dokumen ini menjelaskan cara data kamu digunakan di SADAYA.
+          Dokumen ini menjelaskan cara data kamu digunakan di BALI.
         </p>
         <h3 style={{ marginBottom: '8px' }}>Data yang disimpan</h3>
         <p style={{ marginBottom: '16px' }}>
@@ -27,7 +27,7 @@ const PrivacyPolicy = () => {
         </p>
         <h3 style={{ marginBottom: '8px' }}>Batasan layanan</h3>
         <p style={{ marginBottom: '16px' }}>
-          SADAYA bukan pengganti diagnosis atau perawatan medis profesional.
+          BALI bukan pengganti diagnosis atau perawatan medis profesional.
         </p>
         <h3 style={{ marginBottom: '8px' }}>Kontrol pengguna</h3>
         <p>

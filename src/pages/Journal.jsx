@@ -159,7 +159,7 @@ const Journal = () => {
                             <p>"{aiFeedback.summary}"</p>
                         </div>
                         <div className="feedback-section highlight-bg">
-                            <h4>Saran SADAYA</h4>
+                            <h4>Saran BALI</h4>
                             <p>{aiFeedback.advice}</p>
                         </div>
                     </div>

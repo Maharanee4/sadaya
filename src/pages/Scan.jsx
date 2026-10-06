@@ -102,7 +102,7 @@ const Scan = () => {
         protein: Number(food?.protein) || 0, 
         fat: Number(food?.fat) || 0, 
         carbs: Number(food?.carbs) || 0, 
-        source: 'Database Makanan SADAYA' 
+        source: 'Database Makanan BALI'
       };
       data.scanHistory = Array.isArray(data.scanHistory) ? data.scanHistory : [];
       data.scanHistory.push(scan);
@@ -164,7 +164,7 @@ const Scan = () => {
         throw new Error(`Foto belum bisa dikenali otomatis. Server scan tidak tersedia (${analysisError.message}); pengenalan di perangkat juga tidak menemukan kecocokan yang cukup jelas. Pastikan koneksi internet aktif, atau pilih jenis makanan secara manual.`);
       }
       if (!valueToAnalyze) throw new Error('Makanan belum teridentifikasi. Pilih jenis makanan yang paling sesuai, lalu coba lagi.');
-      const source = result?.source || (browserRecognition ? 'browser-vision-prediction' : 'Database Makanan SADAYA');
+      const source = result?.source || (browserRecognition ? 'browser-vision-prediction' : 'Database Makanan BALI');
       const food = normalizeFoodData({ ...valueToAnalyze, source });
 
       setScannedFood(food);
@@ -327,7 +327,7 @@ const Scan = () => {
                     ? 'Objek yang dipindai tidak jelas sebagai makanan. Pastikan Anda memindai makanan yang aman dan sesuai untuk dikonsumsi.'
                     : food.source === 'browser-vision-prediction'
                       ? 'Ini prediksi visual dari model di browser. Periksa nama makanan agar sesuai dengan foto sebelum memakai informasi gizinya.'
-                      : 'Kenali kandungan makanan dan pilih asupan yang mendukung kesehatanmu dengan SADAYA.'}</p>
+                      : 'Kenali kandungan makanan dan pilih asupan yang mendukung kesehatanmu dengan BALI.'}</p>
                 </div>
               </div>
               <div className="scan-insight-item">

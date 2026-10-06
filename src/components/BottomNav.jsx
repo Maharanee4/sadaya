@@ -22,7 +22,7 @@ const BottomNav = () => {
                 <div className="icon-container">
                     <GraduationCap size={22} />
                 </div>
-                <span>SADAYA EDU</span>
+                <span>BALI EDU</span>
             </NavLink>
 
             <NavLink
@@ -32,7 +32,7 @@ const BottomNav = () => {
                 <div className="icon-container">
                     <MessageSquare size={22} />
                 </div>
-                <span>TEMAN SADAYA</span>
+                <span>TEMAN BALI</span>
             </NavLink>
 
             <NavLink
@@ -42,7 +42,7 @@ const BottomNav = () => {
                 <div className="icon-container">
                     <UsersRound size={22} />
                 </div>
-                <span>SADAYA YOWANA</span>
+                <span>BALI YOWANA</span>
             </NavLink>
 
             <NavLink
@@ -52,7 +52,7 @@ const BottomNav = () => {
                 <div className="icon-container">
                     <BookOpen size={22} />
                 </div>
-                <span>SADAYA CERDAS</span>
+                <span>BALI CERDAS</span>
             </NavLink>
         </nav>
     );

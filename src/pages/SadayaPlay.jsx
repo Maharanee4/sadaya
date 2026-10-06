@@ -103,7 +103,7 @@ export default function SadayaPlay() {
     <main className="sadaya-play-page animate-fade-in">
       <header className="sadaya-play-header">
         <button className="icon-btn-rounded" onClick={() => navigate('/home')} aria-label="Kembali ke beranda"><ArrowLeft size={20} /></button>
-        <div className="sadaya-play-brand"><span><Gamepad2 size={19} /></span><strong>SADAYA BERDAYA</strong></div>
+        <div className="sadaya-play-brand"><span><Gamepad2 size={19} /></span><strong>BALI BERDAYA</strong></div>
         <span className="sadaya-play-spacer" />
       </header>
 

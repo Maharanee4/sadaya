@@ -12,18 +12,18 @@ import './Home.css';
 const ONBOARDING_STEPS = [
     {
         title: 'Pilih Tujuan Belajarmu',
-        description: 'Pilih hal yang ingin kamu pelajari agar SADAYA bisa menemanimu bertumbuh.'
+        description: 'Pilih hal yang ingin kamu pelajari agar BALI bisa menemanimu bertumbuh.'
     },
     {
-        title: 'Selamat Datang di SADAYA',
+        title: 'Selamat Datang di BALI',
         description: 'Ruang digital yang mendukung generasi muda untuk belajar, menjaga diri, dan merencanakan masa depan.'
     },
     {
-        title: 'Mulai Langkah SADAYA',
+        title: 'Mulai Langkah BALI',
         description: 'Jelajahi materi, kuis, dan ruang diskusi untuk memahami diri, membangun hubungan sehat, dan menyiapkan masa depan.'
     },
     {
-        title: 'TEMAN SADAYA',
+        title: 'TEMAN BALI',
         description: 'Konsultasikan perencanaan masa depan, kesehatan reproduksi, dan hubungan yang aman dengan AI ramah remaja.'
     }
 ];
@@ -57,7 +57,7 @@ const Home = () => {
     const [showOnboarding, setShowOnboarding] = useState(false);
     const [onboardingStep, setOnboardingStep] = useState(0);
     const [onboardingGoal, setOnboardingGoal] = useState(ONBOARDING_GOALS[0]);
-    const [playerStats, setPlayerStats] = useState({ xp: 0, level: 1, badges: [], missionProgress: 0, rank: 'SADAYA Pemula', usageCount: 0, nextRank: { minUses: 1 } });
+    const [playerStats, setPlayerStats] = useState({ xp: 0, level: 1, badges: [], missionProgress: 0, rank: 'BALI Pemula', usageCount: 0, nextRank: { minUses: 1 } });
 
     const initializeLocalUser = (name) => {
         if (!name) return;
@@ -226,9 +226,9 @@ const Home = () => {
             <div className="home-container animate-fade-in" style={{ justifyContent: 'center', alignItems: 'center', minHeight: '80vh', paddingBottom: '0' }}>
                 <div className="login-card glass-card">
                     <div className="logo-placeholder login-logo-large" style={{ margin: '0 auto 24px auto', width: '84px', height: '84px', fontSize: '32px' }}>
-                        <img className="app-logo-img" src={sadayaLogo} alt="Logo SADAYA dengan gapura Bali dan tiga tempat sampah terpilah" />
+                        <img className="app-logo-img" src={sadayaLogo} alt="Logo BALI dengan gapura Bali dan tiga tempat sampah terpilah" />
                     </div>
-                    <h2 className="app-name" style={{ textAlign: 'center', marginBottom: '8px' }}>SADAYA</h2>
+                    <h2 className="app-name" style={{ textAlign: 'center', marginBottom: '8px' }}>BALI</h2>
                     <p style={{ textAlign: 'center', color: '#64748b', marginBottom: '24px', fontSize: '14px' }}>
                         Ruang belajar dan bertumbuh bagi generasi muda Bali untuk membangun hubungan sehat, menjaga diri, dan merencanakan masa depan.
                     </p>
@@ -253,7 +253,7 @@ const Home = () => {
                                 style={{ marginTop: '3px' }}
                             />
                             <span style={{ fontSize: '12px', color: '#475569' }}>
-                                Saya menyetujui Kebijakan Privasi dan penggunaan data sesuai layanan SADAYA.
+                                Saya menyetujui Kebijakan Privasi dan penggunaan data sesuai layanan BALI.
                             </span>
                         </label>
                         {authError && (
@@ -273,8 +273,8 @@ const Home = () => {
             {/* Header */}
             <header className="home-header">
                 <div className="logo-container">
-                    <img className="app-logo-img header-logo-img" src={sadayaLogo} alt="Logo SADAYA dengan gapura Bali dan tiga tempat sampah terpilah" />
-                    <h2 className="app-name">SADAYA</h2>
+                    <img className="app-logo-img header-logo-img" src={sadayaLogo} alt="Logo BALI dengan gapura Bali dan tiga tempat sampah terpilah" />
+                    <h2 className="app-name">BALI</h2>
                 </div>
                 <div className="profile-shortcut">
                     <button className="icon-btn-rounded" style={{ padding: '5px', width: '44px', height: '44px', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onClick={() => navigate('/profile')} title={`Avatar ${avatar}`} aria-label={`Buka profil, avatar ${avatar}`}>
@@ -292,9 +292,9 @@ const Home = () => {
                 </div>
                 <p className="home-watermark">karya Siswa SMA Negeri 1 Blahbatuh</p>
 
-                <div className="hero-brand" aria-label="SADAYA">
-                    <img src={sadayaLogo} alt="Logo SADAYA dengan gapura Bali dan tiga tempat sampah terpilah" />
-                    <span>SADAYA</span>
+                <div className="hero-brand" aria-label="BALI">
+                    <img src={sadayaLogo} alt="Logo BALI dengan gapura Bali dan tiga tempat sampah terpilah" />
+                    <span>BALI</span>
                 </div>
 
                 <h1 className="hero-title">
@@ -303,32 +303,32 @@ const Home = () => {
                 </h1>
 
                 <p className="hero-description">
-                    SADAYA menyediakan ruang belajar dan dukungan bagi generasi muda untuk menjaga diri, membangun hubungan sehat, dan merencanakan masa depan.
+                    BALI menyediakan ruang belajar dan dukungan bagi generasi muda untuk menjaga diri, membangun hubungan sehat, dan merencanakan masa depan.
                 </p>
 
                 <div style={{ display: 'flex', width: '100%', maxWidth: '500px', marginBottom: '24px' }}>
                     <button className="btn-secondary" style={{ flex: 1, borderRadius: '16px', padding: '12px 20px', display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'center' }} onClick={() => navigate('/chat')}>
                         <MessageSquare size={18} />
-                        Tanya TEMAN SADAYA
+                        Tanya TEMAN BALI
                     </button>
                 </div>
 
                 {/* Level and streak widget */}
                 <div className="glass-card" style={{ width: '100%', maxWidth: '500px', marginBottom: '24px', padding: '18px', borderRadius: '20px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                        <strong style={{ fontSize: '14px', color: '#0f172a' }}>Pangkat SADAYA</strong>
+                        <strong style={{ fontSize: '14px', color: '#0f172a' }}>Pangkat BALI</strong>
                         <span style={{ fontSize: '12px', color: '#475569' }}>XP {playerStats.xp} • Lv {playerStats.level}</span>
                     </div>
                     <p style={{ fontSize: '12px', color: '#315f3d', marginBottom: '5px', textAlign: 'left', fontWeight: '700' }}>
                         {playerStats.rank} <span style={{ color: '#64748b', fontWeight: '500' }}>· {playerStats.usageCount} penggunaan halaman</span>
                     </p>
                     <p style={{ fontSize: '10px', color: '#64748b', marginBottom: '6px', textAlign: 'left' }}>
-                        {playerStats.nextRank ? `Pangkat berikutnya: ${playerStats.nextRank.label} · ${Math.max(0, playerStats.nextRank.minUses - playerStats.usageCount)} penggunaan lagi` : 'Pangkat tertinggi tercapai. Terus jelajahi SADAYA!'}
+                        {playerStats.nextRank ? `Pangkat berikutnya: ${playerStats.nextRank.label} · ${Math.max(0, playerStats.nextRank.minUses - playerStats.usageCount)} penggunaan lagi` : 'Pangkat tertinggi tercapai. Terus jelajahi BALI!'}
                     </p>
                     <p style={{ fontSize: '10px', color: '#64748b', marginBottom: '8px', textAlign: 'left' }}>
                         Setiap halaman memberi poin satu kali per hari.
                     </p>
-                    <div style={{ height: '6px', width: '100%', background: '#e2e8f0', borderRadius: '999px', overflow: 'hidden', marginBottom: '12px' }} aria-label="Progres pangkat SADAYA">
+                    <div style={{ height: '6px', width: '100%', background: '#e2e8f0', borderRadius: '999px', overflow: 'hidden', marginBottom: '12px' }} aria-label="Progres pangkat BALI">
                         <div style={{ height: '100%', width: `${playerStats.nextRank ? Math.min(100, (playerStats.usageCount / playerStats.nextRank.minUses) * 100) : 100}%`, background: 'linear-gradient(90deg, #397a3f, #d1ad31)' }} />
                     </div>
                     <p style={{ fontSize: '12px', color: '#64748b', marginBottom: '8px', textAlign: 'left' }}>
@@ -348,23 +348,23 @@ const Home = () => {
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '12px' }}>
                         <div onClick={() => navigate('/education')} style={{ padding: '18px 12px', backgroundColor: '#fff0f5', borderRadius: '16px', textAlign: 'center', border: '1px solid #fbcfe8', cursor: 'pointer', transition: 'all 0.3s' }} className="hover-lift">
                           <GraduationCap size={28} color="#c34d77" style={{ display: 'block', margin: '0 auto 8px auto' }} />
-                          <span style={{ fontSize: '13px', color: '#9d315d', fontWeight: '700' }}>SADAYA EDU</span>
+                          <span style={{ fontSize: '13px', color: '#9d315d', fontWeight: '700' }}>BALI EDU</span>
                         </div>
                         <button type="button" onClick={() => navigate('/yowana')} className="hover-lift" style={{ padding: '18px 12px', backgroundColor: '#edf5ec', borderRadius: '16px', textAlign: 'center', border: '1px solid #d5e7d2', cursor: 'pointer', transition: 'all 0.3s', color: 'inherit' }}>
                           <UsersRound size={28} color="#438052" style={{ display: 'block', margin: '0 auto 8px auto' }} />
-                          <span style={{ fontSize: '13px', color: '#356d43', fontWeight: '700' }}>SADAYA YOWANA</span>
+                          <span style={{ fontSize: '13px', color: '#356d43', fontWeight: '700' }}>BALI YOWANA</span>
                         </button>
                         <div onClick={() => navigate('/chat')} style={{ padding: '18px 12px', backgroundColor: '#eff6ff', borderRadius: '16px', textAlign: 'center', border: '1px solid #bfdbfe', cursor: 'pointer', transition: 'all 0.3s' }} className="hover-lift">
                           <MessageSquare size={28} color="#2563eb" style={{ display: 'block', margin: '0 auto 8px auto' }} />
-                          <span style={{ fontSize: '13px', color: '#1d4ed8', fontWeight: '700' }}>TEMAN SADAYA</span>
+                          <span style={{ fontSize: '13px', color: '#1d4ed8', fontWeight: '700' }}>TEMAN BALI</span>
                         </div>
                         <div onClick={() => navigate('/progress')} style={{ padding: '18px 12px', backgroundColor: '#faf5ff', borderRadius: '16px', textAlign: 'center', border: '1px solid #f3e8ff', cursor: 'pointer', transition: 'all 0.3s' }} className="hover-lift">
                           <BarChart2 size={28} color="#7c3aed" style={{ display: 'block', margin: '0 auto 8px auto' }} />
-                          <span style={{ fontSize: '13px', color: '#6d28d9', fontWeight: '700' }}>SADAYA CERDAS</span>
+                          <span style={{ fontSize: '13px', color: '#6d28d9', fontWeight: '700' }}>BALI CERDAS</span>
                         </div>
-                        <button type="button" onClick={() => navigate('/game')} aria-label="Main SADAYA BERDAYA: tiga tantangan pilihan untuk remaja" style={{ padding: '18px 12px', backgroundColor: '#f0fdf4', borderRadius: '16px', textAlign: 'center', border: '1px solid #bbf7d0', cursor: 'pointer', transition: 'all 0.3s', color: 'inherit', font: 'inherit' }} className="hover-lift">
+                        <button type="button" onClick={() => navigate('/game')} aria-label="Main BALI BERDAYA: tiga tantangan pilihan untuk remaja" style={{ padding: '18px 12px', backgroundColor: '#f0fdf4', borderRadius: '16px', textAlign: 'center', border: '1px solid #bbf7d0', cursor: 'pointer', transition: 'all 0.3s', color: 'inherit', font: 'inherit' }} className="hover-lift">
                           <Gamepad2 size={28} color="#16a34a" style={{ display: 'block', margin: '0 auto 8px auto' }} />
-                          <span style={{ fontSize: '13px', color: '#15803d', fontWeight: '700' }}>SADAYA BERDAYA</span>
+                          <span style={{ fontSize: '13px', color: '#15803d', fontWeight: '700' }}>BALI BERDAYA</span>
                           <span style={{ display: 'block', marginTop: '5px', fontSize: '10px', color: '#4b7b54' }}>Mainkan 3 tantangan pilihan untuk remaja</span>
                         </button>
                     </div>
@@ -428,11 +428,11 @@ const Home = () => {
                     <div className="modal-overlay" onClick={() => setShowWelcome(false)} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(4px)', zIndex: 10000, display: 'flex', justifyContent: 'center', alignItems: 'flex-start', paddingTop: '10vh' }}>
                         <div className="modal-content glass-card animate-fade-in" onClick={e => e.stopPropagation()} style={{ width: '90%', maxWidth: '400px', padding: '32px 24px', textAlign: 'center', borderRadius: '24px', background: '#ffffff', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
                             <div className="welcome-logo" style={{ width: '84px', height: '84px', background: '#dcfce7', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 auto 20px auto' }}>
-                                <img className="app-logo-img" src={sadayaLogo} alt="Logo SADAYA dengan gapura Bali dan tiga tempat sampah terpilah" />
+                                <img className="app-logo-img" src={sadayaLogo} alt="Logo BALI dengan gapura Bali dan tiga tempat sampah terpilah" />
                             </div>
                             <h2 style={{ fontSize: '20px', fontWeight: '800', color: '#0f172a', marginBottom: '8px' }}>Selamat Datang Sahabat</h2>
                             <p style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.6', marginBottom: '24px' }}>
-                                Senang melihatmu di SADAYA. Yuk belajar, bertumbuh, dan merencanakan masa depan bersama.
+                                Senang melihatmu di BALI. Yuk belajar, bertumbuh, dan merencanakan masa depan bersama.
                             </p>
                             <button className="btn-primary hover-lift" onClick={() => setShowWelcome(false)} style={{ width: '100%', padding: '14px', borderRadius: '16px' }}>
                                 Mulai Perjalanan Remaja
