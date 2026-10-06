@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send } from 'lucide-react';
+import { Recycle, Send } from 'lucide-react';
 import { chatCompletion } from '../lib/nutriApi';
 import './Chat.css';
 
@@ -7,17 +7,17 @@ const INITIAL_MESSAGES = [
     {
         id: 1,
         sender: 'bot',
-        text: 'Halo! Aku TEMAN BALI. Kamu bisa bertanya tentang perencanaan masa depan, kesehatan reproduksi, batasan dan persetujuan, serta dampak pernikahan dini. Aku akan menjawab dengan informasi yang ramah remaja dan tanpa menghakimi.',
+        text: 'Halo! Aku TEMAN BALI, chatbot edukasi lingkungan. Tanyakan tentang perbedaan sampah organik, nonorganik, dan residu, cara memilah, atau kebiasaan mengurangi sampah. Jangan kirim data pribadi ya.',
     }
 ];
 
 const SUGGESTIONS = [
-    'Apa dampak pernikahan dini bagi pendidikan dan masa depan?',
-    'Bagaimana menjaga batasan diri dan menghadapi tekanan untuk seks bebas?',
-    'Bagaimana menghadapi tekanan dari pasangan?',
-    'Di mana mencari informasi kesehatan reproduksi yang tepercaya?'
+    'Apa perbedaan sampah organik, nonorganik, dan residu?',
+    'Kulit pisang dan bungkus jajanan dipilah bagaimana?',
+    'Apa dampak jika sampah tidak dipilah?',
+    'Bagaimana cara mengurangi sampah plastik di sekolah?'
 ];
-const CHAT_REFERENCES = '\n\nReferensi:\n- Kemenkes RI, Informasi Kesehatan Remaja: https://ayosehat.kemkes.go.id/kategori-usia/remaja\n- WHO, Comprehensive sexuality education: https://www.who.int/news-room/fact-sheets/detail/comprehensive-sexuality-education\n- UU No. 16 Tahun 2019 tentang Perubahan atas UU Perkawinan: https://peraturan.bpk.go.id/Details/122740/uuno-16-tahun-2019';
+const CHAT_REFERENCES = '\n\nSumber untuk dibaca:\n- SIPSN — Sistem Informasi Pengelolaan Sampah Nasional: https://sipsn.menlhk.go.id/\n- SIMBA — Sistem Informasi Manajemen Bank Sampah: https://simba.menlhk.go.id/';
 
     const withReferences = (text) => {
         const answer = String(text || '').trim();
@@ -47,8 +47,9 @@ const Chat = () => {
                 const savedData = localStorage.getItem(userKey);
                 if (savedData) {
                     const userData = JSON.parse(savedData);
-                    const isLegacyTravelChat = userData.chatHistory?.[0]?.text?.includes('Travel Health Nursing');
-                    if (userData.chatHistory && userData.chatHistory.length > 0 && !isLegacyTravelChat) {
+                    const isOldTopicChat = userData.chatHistory?.[0]?.text?.includes('perencanaan masa depan')
+                        || userData.chatHistory?.[0]?.text?.includes('Travel Health Nursing');
+                    if (userData.chatHistory && userData.chatHistory.length > 0 && !isOldTopicChat) {
                         const migratedHistory = userData.chatHistory.map((message, index) => (
                             index === 0 && message.sender === 'bot'
                                 ? { ...message, text: message.text.replaceAll('Konsul Remaja Pintar', 'TEMAN BALI') }
@@ -65,7 +66,7 @@ const Chat = () => {
                             {
                                 id: 1,
                                 sender: 'bot',
-                                text: `Halo ${username}! Aku TEMAN BALI. Kamu bisa bertanya tentang perencanaan masa depan, kesehatan reproduksi, batasan dan persetujuan, serta dampak pernikahan dini. Aku akan menjawab dengan informasi yang ramah remaja dan tanpa menghakimi.`,
+                                text: `Halo ${username}! Aku TEMAN BALI, chatbot edukasi lingkungan. Tanyakan tentang jenis sampah, cara memilah, dan kebiasaan mengurangi sampah. Jangan kirim data pribadi ya.`,
                             }
                         ];
                         setMessages(personalizedGreeting);
@@ -118,7 +119,7 @@ const Chat = () => {
 
     const getAiResponse = async (userText, history) => {
         try {
-            const formattedHistory = history.map(msg => ({
+            const formattedHistory = history.slice(-10).map(msg => ({
                 role: msg.sender === 'user' ? 'user' : 'assistant',
                 content: msg.text
             }));
@@ -128,7 +129,7 @@ const Chat = () => {
                 content: userText
             });
 
-            const systemPrompt = "Kamu adalah TEMAN BALI, pendamping informasi yang ramah, akurat, tidak menghakimi, dan menggunakan bahasa Indonesia yang mudah dipahami remaja. Fokus konsultasi: perencanaan masa depan, pernikahan dini dan dampaknya pada pendidikan, kesehatan, hak serta pilihan hidup; kesehatan reproduksi; persetujuan, batasan diri, tekanan pasangan, dan pencegahan risiko aktivitas seksual. Jawab sekitar 3-6 kalimat, ringkas tetapi jelas. Gunakan bahasa yang sesuai usia; jangan memberi konten erotis, deskripsi seksual eksplisit, atau instruksi seksual eksplisit. Jangan mempermalukan, menakut-nakuti, menyalahkan, atau memaksa pengguna. Berikan informasi kesehatan umum berdasarkan sumber tepercaya, jangan mendiagnosis atau meresepkan. Jika pengguna mengalami paksaan, kekerasan, eksploitasi, atau merasa tidak aman, validasi bahwa itu bukan salahnya dan sarankan menghubungi orang dewasa tepercaya, tenaga kesehatan, atau layanan perlindungan setempat; prioritaskan keselamatan segera. Untuk pertanyaan hukum atau medis yang spesifik, jelaskan batas kepastian dan arahkan ke tenaga profesional/sumber resmi terkini. Jangan membuat klaim hukum atau medis yang tidak dapat dipastikan. Gunakan paling banyak satu emoji. Jika pertanyaan di luar topik, jawab singkat lalu arahkan kembali dengan sopan.";
+            const systemPrompt = "Kamu adalah TEMAN BALI, chatbot edukasi lingkungan untuk siswa. Jawab dengan bahasa Indonesia sederhana, ramah, tidak menghakimi, dan 3-6 kalimat. Fokus pada perbedaan sampah organik, nonorganik, dan residu; langkah aman memilah; dampak sampah tercampur; pengurangan, penggunaan kembali, dan daur ulang; serta kebiasaan menjaga kebersihan lingkungan sekolah dan rumah. Jelaskan bahwa penerimaan bahan daur ulang dan jenis tempat sampah bisa berbeda menurut fasilitas setempat. Untuk baterai, lampu, elektronik, bahan kimia, atau benda berbahaya, sarankan untuk tidak membongkar dan tanyakan jalur pengumpulan khusus kepada guru atau petugas. Jangan membuat klaim angka atau kebijakan lokal yang tidak pasti. Jangan meminta atau menyebarkan data pribadi. Jika pertanyaan di luar topik, arahkan kembali dengan sopan.";
 
             const data = await chatCompletion({
                 messages: [
@@ -140,27 +141,34 @@ const Chat = () => {
             });
             return withReferences(data.content?.trim() || getLocalResponseFallback(userText));
         } catch (error) {
-            console.warn('AI chat unavailable; using local youth education guidance.', error);
+            console.warn('AI chat unavailable; using local waste-sorting guidance.', error);
             return withReferences(getLocalResponseFallback(userText));
         }
     };
 
     const getLocalResponseFallback = (text) => {
         const lower = text.toLowerCase();
-        if (lower.includes('pernikahan dini') || lower.includes('kawin muda') || lower.includes('nikah muda')) {
-            return "Pernikahan dini dapat membawa tanggung jawab besar dan berisiko membatasi kelanjutan pendidikan, kesehatan, perlindungan, serta pilihan masa depan. Setiap remaja berhak mendapat informasi dan dukungan tanpa tekanan. Jika kamu atau temanmu sedang didesak menikah, bicarakan dengan orang dewasa tepercaya, guru/konselor, tenaga kesehatan, atau layanan perlindungan anak setempat.";
+        if (lower.includes('organik') || lower.includes('sisa makanan') || lower.includes('kulit buah') || lower.includes('daun')) {
+            return 'Sampah organik berasal dari sisa makhluk hidup dan umumnya mudah terurai, contohnya sisa buah, sayur, makanan, dan daun. Pisahkan dari bungkusnya supaya lebih mudah dikelola atau dijadikan kompos bila tersedia. Ikuti aturan tempat sampah di sekolahmu.';
         }
-        if (lower.includes('seks') || lower.includes('hubungan intim') || lower.includes('persetujuan') || lower.includes('consent')) {
-            return "Kamu berhak menetapkan batasan untuk tubuh dan hubunganmu. Persetujuan harus diberikan dengan bebas, tanpa tekanan atau ancaman, dan bisa ditarik kapan saja. Memilih menunda aktivitas seksual adalah pilihan yang wajar; bila ada paksaan atau kamu merasa tidak aman, cari bantuan orang dewasa tepercaya atau tenaga kesehatan. Untuk informasi pribadi tentang kesehatan reproduksi, gunakan layanan kesehatan yang tepercaya dan ramah remaja.";
+        if (lower.includes('nonorganik') || lower.includes('plastik') || lower.includes('botol') || lower.includes('kaleng') || lower.includes('kertas')) {
+            return 'Botol plastik, kaleng, kaca, dan kertas bersih adalah contoh bahan nonorganik yang mungkin dapat digunakan kembali atau didaur ulang. Kosongkan dan keringkan kemasan, lalu periksa apakah bank sampah atau fasilitas setempat menerimanya. Kemasan yang sangat kotor atau berbahan campuran bisa perlu penanganan berbeda.';
         }
-        if (lower.includes('reproduksi') || lower.includes('haid') || lower.includes('menstruasi') || lower.includes('kehamilan') || lower.includes('ims')) {
-            return "Pertanyaan tentang kesehatan reproduksi itu wajar dan kamu berhak mendapat informasi yang benar tanpa dihakimi. Untuk saran yang sesuai kondisimu, bicaralah dengan tenaga kesehatan atau layanan ramah remaja; hindari memakai obat atau mengikuti saran dari sumber yang tidak jelas. Jika pertanyaanmu menyangkut paksaan atau keselamatan, ceritakan kepada orang dewasa tepercaya.";
+        if (lower.includes('residu') || lower.includes('tisu')) {
+            return 'Residu adalah sisa yang tidak dapat digunakan kembali atau belum diterima untuk didaur ulang oleh fasilitas di sekitarmu. Tisu kotor sering menjadi contoh residu. Jenis pastinya dapat berbeda menurut aturan setempat, jadi periksa label tempat sampah dan tanyakan kepada guru atau petugas.';
         }
-        return "Aku bisa membantu membahas perencanaan masa depan, dampak pernikahan dini, kesehatan reproduksi, persetujuan, dan cara menghadapi tekanan dengan aman. Ceritakan pertanyaanmu secukupnya—kamu tidak perlu membagikan nama atau detail pribadi.";
+        if (lower.includes('dampak') || lower.includes('tercampur') || lower.includes('tidak dipilah')) {
+            return 'Jika sampah tercampur, sisa makanan dan cairan dapat mengotori bahan yang sebenarnya bisa digunakan kembali atau didaur ulang. Pemilahan ulang jadi lebih sulit, dan sampah yang tercecer dapat mengganggu kebersihan lingkungan atau menyumbat saluran air. Memilah dari sumbernya membantu pengelolaan, bersama fasilitas yang tersedia.';
+        }
+        if (lower.includes('baterai') || lower.includes('elektronik') || lower.includes('lampu')) {
+            return 'Baterai, lampu, dan barang elektronik perlu penanganan khusus. Jangan dibongkar atau dicampur ke wadah sampah biasa. Simpan dengan aman, lalu tanyakan kepada guru atau petugas kebersihan tentang jalur pengumpulan yang tersedia.';
+        }
+        return 'Aku bisa membantu menjelaskan jenis sampah, cara memilah, dampak sampah tercampur, dan kebiasaan mengurangi sampah. Ceritakan bendanya tanpa mencantumkan nama, alamat, sekolah, atau data pribadi lainnya; kalau ragu, ikuti label wadah dan tanyakan kepada guru atau petugas.';
     };
 
     const handleSend = async (textToSend = inputText) => {
-        if (!textToSend.trim()) return;
+        const safeText = String(textToSend || '').trim().slice(0, 500);
+        if (!safeText || isTyping) return;
         
         playSendSound();
 
@@ -169,7 +177,7 @@ const Chat = () => {
         const newMessage = {
             id: messages.length + 1,
             sender: 'user',
-            text: textToSend
+            text: safeText
         };
 
         const updatedMessagesWithUser = [...currentHistory, newMessage];
@@ -179,7 +187,7 @@ const Chat = () => {
         setInputText('');
         setIsTyping(true);
 
-        const aiText = await getAiResponse(textToSend, currentHistory);
+        const aiText = await getAiResponse(safeText, currentHistory);
 
         const botResponse = {
             id: updatedMessagesWithUser.length + 1,
@@ -198,10 +206,10 @@ const Chat = () => {
         <div className="chat-container">
             <header className="chat-header">
                 <div className="chat-header-left">
-                    <div className="chat-logo-mini">🎒</div>
+                    <div className="chat-logo-mini"><Recycle size={21} aria-hidden="true" /></div>
                         <div className="chat-header-text">
                         <h2>TEMAN BALI</h2>
-                        <p>Pernikahan dini, seks bebas, dan kesehatan reproduksi</p>
+                        <p>Teman belajar memilah sampah</p>
                     </div>
                 </div>
             </header>
@@ -250,7 +258,9 @@ const Chat = () => {
                 <div className="input-bar">
                     <input
                         type="text"
-                        placeholder="Tanya seputar kesehatan dan masa depan remaja..."
+                            placeholder="Tanya cara memilah sampah..."
+                            maxLength={500}
+                            aria-label="Tulis pertanyaan tentang sampah"
                         value={inputText}
                         onChange={(e) => setInputText(e.target.value)}
                         onKeyPress={(e) => e.key === 'Enter' && handleSend()}
@@ -258,6 +268,8 @@ const Chat = () => {
                     <button
                         className={`send-btn ${inputText.trim() ? 'active' : ''}`}
                         onClick={() => handleSend()}
+                        disabled={!inputText.trim() || isTyping}
+                        aria-label="Kirim pertanyaan"
                     >
                         <Send size={20} />
                     </button>

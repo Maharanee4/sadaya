@@ -16,7 +16,7 @@ const Footer = () => {
                         <li><Link to="/scan">BALI SCAN</Link></li>
                         <li><Link to="/education">BALI EDU</Link></li>
                         <li><Link to="/checklist">BALI PILAH</Link></li>
-                        <li><Link to="/tracking">BALI TRACK</Link></li>
+                        <li><Link to="/chat">TEMAN BALI</Link></li>
                         <li><Link to="/quiz">BALI QUIZ</Link></li>
                         <li><Link to="/map">BALI MAP</Link></li>
                     </ul>

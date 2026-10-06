@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sparkles, ScanLine, BarChart2, GraduationCap, Recycle, BookOpen, MapPin } from 'lucide-react';
+import { Sparkles, ScanLine, MessageCircle, GraduationCap, Recycle, BookOpen, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import sadayaLogo from '../assets/sadaya-logo-terpilah.png';
@@ -350,7 +350,7 @@ const Home = () => {
                             { title: 'BALI SCAN', detail: 'Cari jenis sebuah benda', path: '/scan', Icon: ScanLine },
                             { title: 'BALI EDU', detail: 'Pelajari dasar pemilahan', path: '/education', Icon: GraduationCap },
                             { title: 'BALI PILAH', detail: 'Latihan memilih wadah', path: '/checklist', Icon: Recycle },
-                            { title: 'BALI TRACK', detail: 'Catat aksi pilah harian', path: '/tracking', Icon: BarChart2 },
+                            { title: 'TEMAN BALI', detail: 'Tanya chatbot soal sampah', path: '/chat', Icon: MessageCircle },
                             { title: 'BALI QUIZ', detail: 'Uji pemahamanmu', path: '/quiz', Icon: BookOpen },
                             { title: 'BALI MAP', detail: 'Cari panduan fasilitas Bali', path: '/map', Icon: MapPin },
                         ].map(({ title, detail, path, Icon }) => (

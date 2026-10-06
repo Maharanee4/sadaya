@@ -18,7 +18,6 @@ const Yowana = lazy(() => import('./pages/Yowana'));
 const SadayaCerdas = lazy(() => import('./pages/SadayaCerdas'));
 const WasteScan = lazy(() => import('./pages/WasteScan'));
 const WasteSort = lazy(() => import('./pages/WasteSort'));
-const WasteTrack = lazy(() => import('./pages/WasteTrack'));
 const WasteMap = lazy(() => import('./pages/WasteMap'));
 
 function RouteScrollReset() {
@@ -120,7 +119,7 @@ function App() {
               <Route path="/yowana" element={<Yowana />} />
               <Route path="/checklist" element={<WasteSort />} />
               <Route path="/travel-game" element={<Navigate to="/home" replace />} />
-              <Route path="/tracking" element={<WasteTrack />} />
+              <Route path="/tracking" element={<Navigate to="/chat" replace />} />
               <Route path="/quiz" element={<SadayaCerdas />} />
               <Route path="/map" element={<WasteMap />} />
               <Route path="/" element={<Navigate to="/home" replace />} />

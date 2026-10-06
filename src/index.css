@@ -15,8 +15,8 @@
   --bg-gradient-start: #e7f4e7;
   --bg-gradient-end: #fff5ce;
   --bg-main: linear-gradient(125deg, #e7f4e7 0%, #e9f3fb 52%, #fff5ce 100%);
-  --bg-photo-overlay: rgba(248, 251, 247, 0.48);
-  --bg-photo-tint: linear-gradient(125deg, rgba(38, 132, 75, 0.28) 0%, rgba(48, 126, 190, 0.25) 53%, rgba(236, 194, 53, 0.24) 100%);
+  --bg-photo-overlay: rgba(248, 251, 247, 0.28);
+  --bg-photo-tint: linear-gradient(125deg, rgba(38, 132, 75, 0.13) 0%, rgba(48, 126, 190, 0.12) 53%, rgba(236, 194, 53, 0.12) 100%);
   
   --text-main: #1e293b;
   --text-muted: #64748b;

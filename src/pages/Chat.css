@@ -55,11 +55,7 @@
     align-items: center;
     font-size: 20px;
     box-shadow: var(--shadow-md);
-    color: transparent;
-    background-image: url('../assets/sadaya-logo-terpilah.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
+    color: white;
 }
 
 .chat-header-text h2 {
