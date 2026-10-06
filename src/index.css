@@ -2,29 +2,30 @@
 
 :root {
   /* SADAYA palette */
-  --primary: #397a3f;
-  --primary-dark: #285e32;
-  --primary-light: #84b84d;
-  --primary-surface: #edf5df;
-  --secondary: #d1a92e;
-  --secondary-dark: #a9841e;
-  --secondary-light: #ebcd62;
-  --secondary-surface: #fff7d9;
+  --primary: #287748;
+  --primary-dark: #1d593a;
+  --primary-light: #75b96c;
+  --primary-surface: #e8f4e8;
+  --secondary: #2879b8;
+  --secondary-dark: #1e5b8d;
+  --secondary-light: #8dc5e4;
+  --secondary-surface: #eaf4fb;
   
   /* Soft page surfaces keep the colorful base behind readable components */
-  --bg-gradient-start: #fffbea;
-  --bg-gradient-end: #e9f3de;
-  --bg-main: linear-gradient(125deg, #edf5e5 0%, #fff8dc 50%, #e7f1dd 100%);
-  --bg-photo-overlay: rgba(246, 250, 240, 0.68);
+  --bg-gradient-start: #e7f4e7;
+  --bg-gradient-end: #fff5ce;
+  --bg-main: linear-gradient(125deg, #e7f4e7 0%, #e9f3fb 52%, #fff5ce 100%);
+  --bg-photo-overlay: rgba(248, 251, 247, 0.48);
+  --bg-photo-tint: linear-gradient(125deg, rgba(38, 132, 75, 0.28) 0%, rgba(48, 126, 190, 0.25) 53%, rgba(236, 194, 53, 0.24) 100%);
   
   --text-main: #1e293b;
   --text-muted: #64748b;
   
   /* Modern Accent Colors */
-  --accent-purple: #718c3b;
-  --accent-pink: #d1a92e;
-  --accent-orange: #c69325;
-  --accent-cyan: #5b995b;
+  --accent-purple: #2879b8;
+  --accent-pink: #d8ae29;
+  --accent-orange: #c59620;
+  --accent-cyan: #55a5c8;
 }
 
 [data-theme="ocean"] {
@@ -71,14 +72,15 @@
   --white: #ffffff;
   --card-bg: rgba(255, 255, 255, 0.95);
 
-  --success: #4f8a45;
-  --warning: #d1a92e;
+  --success: #39844f;
+  --warning: #b48a17;
   --danger: #ef4444;
 
-  --accent-blue: #558b45;
-  --accent-green: #4f8a45;
-  --accent-gradient: linear-gradient(120deg, #287545 0%, #8eaa35 58%, #e0bd3d 100%);
-  --modern-gradient: linear-gradient(120deg, #287545 0%, #8eaa35 58%, #e0bd3d 100%);
+  --accent-blue: #2879b8;
+  --accent-green: #287748;
+  --accent-yellow: #d8ae29;
+  --accent-gradient: linear-gradient(120deg, #287748 0%, #2879b8 55%, #b48a17 100%);
+  --modern-gradient: linear-gradient(120deg, #287748 0%, #2879b8 55%, #b48a17 100%);
 
   /* Modern Shadows & Glassmorphism */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -98,8 +100,9 @@
 [data-color-mode="dark"] {
   --bg-gradient-start: #0b1020;
   --bg-gradient-end: #111827;
-  --bg-main: linear-gradient(125deg, #14251b 0%, #282817 52%, #17231b 100%);
+  --bg-main: linear-gradient(125deg, #14251b 0%, #172538 52%, #282817 100%);
   --bg-photo-overlay: rgba(10, 18, 15, 0.76);
+  --bg-photo-tint: linear-gradient(125deg, rgba(20, 100, 54, 0.32) 0%, rgba(25, 83, 133, 0.34) 53%, rgba(137, 102, 13, 0.3) 100%);
   --text-main: #e2e8f0;
   --text-muted: #94a3b8;
   --white: #111827;
@@ -138,8 +141,8 @@ select {
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: var(--text-main);
-  background-color: #e9f3de;
-  background-image: linear-gradient(var(--bg-photo-overlay), var(--bg-photo-overlay)), url('./assets/sadaya-background.webp');
+  background-color: #e9f3fb;
+  background-image: var(--bg-photo-tint), linear-gradient(var(--bg-photo-overlay), var(--bg-photo-overlay)), url('./assets/sadaya-background.webp');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

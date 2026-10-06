@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">SADAYA Bersih Bali</title>
+  <desc id="desc">Ilustrasi logo kepedulian sampah dengan gerbang khas Bali, gunung, daun, dan simbol daur ulang.</desc>
+  <defs>
+    <linearGradient id="ring" x1="64" y1="80" x2="440" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#23864d"/>
+      <stop offset=".52" stop-color="#2588bd"/>
+      <stop offset="1" stop-color="#edc936"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="106" y1="364" x2="403" y2="438" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#dff2d2"/>
+      <stop offset=".55" stop-color="#d9eff8"/>
+      <stop offset="1" stop-color="#fff2b8"/>
+    </linearGradient>
+    <linearGradient id="bin" x1="194" y1="250" x2="313" y2="364" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3da45d"/>
+      <stop offset="1" stop-color="#176a58"/>
+    </linearGradient>
+    <filter id="shadow" x="80" y="48" width="352" height="392" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#174b3a" flood-opacity=".16"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <circle cx="256" cy="220" r="176" fill="#fff" fill-opacity=".96" stroke="url(#ring)" stroke-width="13"/>
+    <circle cx="256" cy="220" r="158" fill="#f8fcf6"/>
+    <!-- Mount Agung and Bali foliage -->
+    <path d="m139 185 48-63 25 31 42-61 60 84 42 31H133z" fill="#cde8e6"/>
+    <path d="m188 150 24 19 17-8 25-48 27 51 21-7 35 43H155z" fill="#78b9a0"/>
+    <path d="M115 191c27-26 53-41 77-46-12 15-22 29-31 45 24-10 43-14 59-13-19 13-32 28-43 45H125z" fill="#348b50"/>
+    <path d="M398 188c-26-25-52-39-76-43 12 14 22 28 31 43-22-8-42-10-60-7 18 12 32 27 43 44h67z" fill="#4b9d50"/>
+    <path d="M120 213c39-15 84-23 136-23s97 8 136 23v124H120z" fill="url(#ground)"/>
+
+    <!-- Balinese split gate -->
+    <path d="M142 333V182h24v151m180 0V182h24v151" fill="#8e5931" stroke="#593a2a" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M133 190h42l-7-14h-28zm173 0h42l-7-14h-28z" fill="#d49a43" stroke="#76502f" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M145 214h18m-18 24h18m-18 24h18m171-48h18m-18 24h18m-18 24h18" stroke="#e5bd70" stroke-width="5" stroke-linecap="round"/>
+    <path d="M131 334h46m168 0h46" stroke="#5a492f" stroke-width="8" stroke-linecap="round"/>
+    <path d="M187 337c32-17 68-25 109-24 27 1 49 7 68 18-33 20-67 30-105 30-29 0-53-7-72-24z" fill="#80b75b"/>
+    <path d="M197 345c30-12 66-15 104-8-18 9-37 15-58 15-18 0-33-2-46-7z" fill="#d4b832"/>
+
+    <!-- Segregated waste bin -->
+    <path d="M204 250h104l-9 99a13 13 0 0 1-13 12h-60a13 13 0 0 1-13-12z" fill="url(#bin)" stroke="#165b46" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M195 243h122v13H195zm23-12h76l9 12h-94z" fill="#1f6f52" stroke="#165b46" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M229 319h55m-53 14h50" stroke="#c4ead0" stroke-opacity=".65" stroke-width="5" stroke-linecap="round"/>
+    <path d="M258 307c-1-14 1-25 8-34" fill="none" stroke="#f5f8e7" stroke-width="5" stroke-linecap="round"/>
+    <path d="M260 289c-15 2-20-6-18-16 11 0 18 4 18 16zm5-12c0-13 8-19 18-17 0 10-5 16-18 17z" fill="#f5f8e7"/>
+    <circle cx="267" cy="306" r="3" fill="#edc936"/>
+  </g>
+
+  <path d="M113 410c34 14 80 21 143 21s109-7 143-21" fill="none" stroke="url(#ring)" stroke-width="7" stroke-linecap="round"/>
+  <text x="256" y="463" fill="#246e49" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" letter-spacing="3" text-anchor="middle">SADAYA BERSIH</text>
+  <text x="256" y="488" fill="#476879" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" letter-spacing="1.4" text-anchor="middle">PILAH SAMPAH, JAGA BALI</text>
+</svg>

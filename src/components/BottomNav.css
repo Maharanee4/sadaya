@@ -8,7 +8,7 @@
     left: 50%;
     transform: translateX(-50%);
     height: var(--bottom-nav-height);
-    background: rgba(255, 255, 255, 0.95);
+    background: linear-gradient(115deg, rgba(232, 244, 232, 0.97) 0%, rgba(234, 244, 251, 0.97) 55%, rgba(255, 248, 222, 0.98) 100%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     display: flex;
@@ -17,7 +17,7 @@
     box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
     border-top-left-radius: 28px;
     border-top-right-radius: 28px;
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.88);
     z-index: 1000;
     padding: 8px 12px max(8px, env(safe-area-inset-bottom));
 }
