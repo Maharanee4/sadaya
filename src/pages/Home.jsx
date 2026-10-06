@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Sparkles, MessageSquare, BarChart2, Gamepad2, GraduationCap, UsersRound } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
-import sadayaLogo from '../assets/sadaya-logo-bali.png';
+import sadayaLogo from '../assets/sadaya-logo-terpilah.png';
 import BaliAvatar from '../components/BaliAvatar';
 import { trackEvent } from '../lib/analytics';
 import { ensureNeonUser } from '../lib/neonApi';
@@ -226,7 +226,7 @@ const Home = () => {
             <div className="home-container animate-fade-in" style={{ justifyContent: 'center', alignItems: 'center', minHeight: '80vh', paddingBottom: '0' }}>
                 <div className="login-card glass-card">
                     <div className="logo-placeholder login-logo-large" style={{ margin: '0 auto 24px auto', width: '84px', height: '84px', fontSize: '32px' }}>
-                        <img className="app-logo-img" src={sadayaLogo} alt="Logo SADAYA — Website Penggerak oleh STT Bali" />
+                        <img className="app-logo-img" src={sadayaLogo} alt="Logo SADAYA dengan gapura Bali dan tiga tempat sampah terpilah" />
                     </div>
                     <h2 className="app-name" style={{ textAlign: 'center', marginBottom: '8px' }}>SADAYA</h2>
                     <p style={{ textAlign: 'center', color: '#64748b', marginBottom: '24px', fontSize: '14px' }}>
@@ -273,7 +273,7 @@ const Home = () => {
             {/* Header */}
             <header className="home-header">
                 <div className="logo-container">
-                    <img className="app-logo-img header-logo-img" src={sadayaLogo} alt="Logo SADAYA — Website Penggerak oleh STT Bali" />
+                    <img className="app-logo-img header-logo-img" src={sadayaLogo} alt="Logo SADAYA dengan gapura Bali dan tiga tempat sampah terpilah" />
                     <h2 className="app-name">SADAYA</h2>
                 </div>
                 <div className="profile-shortcut">
@@ -293,7 +293,7 @@ const Home = () => {
                 <p className="home-watermark">karya Siswa SMA Negeri 1 Blahbatuh</p>
 
                 <div className="hero-brand" aria-label="SADAYA">
-                    <img src={sadayaLogo} alt="Logo SADAYA" />
+                    <img src={sadayaLogo} alt="Logo SADAYA dengan gapura Bali dan tiga tempat sampah terpilah" />
                     <span>SADAYA</span>
                 </div>
 
@@ -428,7 +428,7 @@ const Home = () => {
                     <div className="modal-overlay" onClick={() => setShowWelcome(false)} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(4px)', zIndex: 10000, display: 'flex', justifyContent: 'center', alignItems: 'flex-start', paddingTop: '10vh' }}>
                         <div className="modal-content glass-card animate-fade-in" onClick={e => e.stopPropagation()} style={{ width: '90%', maxWidth: '400px', padding: '32px 24px', textAlign: 'center', borderRadius: '24px', background: '#ffffff', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
                             <div className="welcome-logo" style={{ width: '84px', height: '84px', background: '#dcfce7', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 auto 20px auto' }}>
-                                <img className="app-logo-img" src={sadayaLogo} alt="Logo SADAYA — Website Penggerak oleh STT Bali" />
+                                <img className="app-logo-img" src={sadayaLogo} alt="Logo SADAYA dengan gapura Bali dan tiga tempat sampah terpilah" />
                             </div>
                             <h2 style={{ fontSize: '20px', fontWeight: '800', color: '#0f172a', marginBottom: '8px' }}>Selamat Datang Sahabat</h2>
                             <p style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.6', marginBottom: '24px' }}>

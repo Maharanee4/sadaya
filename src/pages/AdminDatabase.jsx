@@ -3,7 +3,7 @@ import { Users, Activity, MessageCircle, AlertCircle, Download, X, BarChart2 } f
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { deleteNeonUser, isNeonEnabled, listNeonAdminUsers } from '../lib/neonApi';
 import { trackEvent } from '../lib/analytics';
-import sadayaLogo from '../assets/sadaya-logo-bali.png';
+import sadayaLogo from '../assets/sadaya-logo-terpilah.png';
 import './AdminDatabase.css';
 const ADMIN_AUDIT_KEY = 'moodify_admin_audit_log';
 
@@ -468,7 +468,7 @@ const AdminDatabase = () => {
             <div className="admin-header">
                 <div className="admin-logo-area">
                     <div className="admin-logo">
-                        <img src={sadayaLogo} alt="Logo SADAYA — Website Penggerak oleh STT Bali" />
+                        <img src={sadayaLogo} alt="Logo SADAYA dengan gapura Bali dan tempat sampah terpilah" />
                     </div>
                     <div>
                         <h1>SADAYA Admin Portal</h1>

@@ -56,8 +56,8 @@
     font-size: 20px;
     box-shadow: var(--shadow-md);
     color: transparent;
-    background-image: url('../assets/sadaya-logo-bali.png');
-    background-size: 76%;
+    background-image: url('../assets/sadaya-logo-terpilah.png');
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -142,8 +142,8 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     flex-shrink: 0;
     color: transparent;
-    background-image: url('../assets/sadaya-logo-bali.png');
-    background-size: 78%;
+    background-image: url('../assets/sadaya-logo-terpilah.png');
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
