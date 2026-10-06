@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, LogOut, Settings, Award, CalendarDays, Moon, Palette, UserRound, Pencil, Save, X } from 'lucide-react';
 import BaliAvatar from '../components/BaliAvatar';
+import { getFlowerAvatarOptions, normalizeBaliAvatar } from '../components/baliAvatarOptions';
 import { trackEvent } from '../lib/analytics';
 import './Profile.css';
 
@@ -12,7 +13,7 @@ const THEMES = [
     { id: 'lavender', name: 'Lavender', color: '#8b5cf6' }
 ];
 
-const AVATARS = ['Jembrana', 'Tabanan', 'Badung', 'Gianyar', 'Klungkung', 'Bangli', 'Karangasem', 'Buleleng', 'Denpasar'];
+const AVATARS = getFlowerAvatarOptions();
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const Profile = () => {
     });
     
     const [activeTheme, setActiveTheme] = useState('default');
-    const [activeAvatar, setActiveAvatar] = useState('Gianyar');
+    const [activeAvatar, setActiveAvatar] = useState('Jepun');
 
     useEffect(() => {
         const storedUser = localStorage.getItem('moodify_currentUser');
@@ -53,7 +54,7 @@ const Profile = () => {
                 setNameDraft(savedDisplayName);
             }
             if (parsed.theme) setActiveTheme(parsed.theme);
-            setActiveAvatar(AVATARS.includes(parsed.avatar) ? parsed.avatar : 'Gianyar');
+            setActiveAvatar(normalizeBaliAvatar(parsed.avatar));
             setSettings(prev => ({
                 ...prev,
                 darkMode: Boolean(parsed.darkMode),
@@ -223,24 +224,24 @@ const Profile = () => {
                         <div className="setting-divider" style={{ margin: '0 0 20px 0' }}></div>
 
                         <div>
-                            <h4 style={{ fontSize: '14px', marginBottom: '12px', color: 'var(--text-main)' }}>Pilih Avatar</h4>
+                        <h4 style={{ fontSize: '14px', marginBottom: '12px', color: 'var(--text-main)' }}>Pilih Ilustrasi Bunga</h4>
                             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                                {AVATARS.map(region => (
+                                {AVATARS.map(flower => (
                                     <button
-                                        key={region}
-                                        onClick={() => handleAvatarChange(region)}
-                                        aria-pressed={activeAvatar === region}
-                                        aria-label={`Avatar ${region}`}
-                                        title={region}
+                                        key={flower}
+                                        onClick={() => handleAvatarChange(flower)}
+                                        aria-pressed={activeAvatar === flower}
+                                        aria-label={`Ilustrasi bunga ${flower}`}
+                                        title={flower}
                                         style={{
                                             width: '58px', height: '58px', padding: '4px', borderRadius: '50%',
                                             display: 'flex', justifyContent: 'center', alignItems: 'center',
-                                            backgroundColor: activeAvatar === region ? 'var(--primary-surface)' : 'rgba(148, 163, 184, 0.2)',
-                                            border: activeAvatar === region ? '2px solid var(--primary)' : '2px solid transparent',
+                                            backgroundColor: activeAvatar === flower ? 'var(--primary-surface)' : 'rgba(148, 163, 184, 0.2)',
+                                            border: activeAvatar === flower ? '2px solid var(--primary)' : '2px solid transparent',
                                             cursor: 'pointer', transition: 'all 0.2s'
                                         }}
                                     >
-                                        <BaliAvatar region={region} size={46} />
+                                        <BaliAvatar region={flower} size={46} />
                                     </button>
                                 ))}
                             </div>

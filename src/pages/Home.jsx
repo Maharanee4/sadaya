@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import sadayaLogo from '../assets/sadaya-logo-terpilah.png';
 import BaliAvatar from '../components/BaliAvatar';
+import { normalizeBaliAvatar } from '../components/baliAvatarOptions';
 import { trackEvent } from '../lib/analytics';
 import { ensureNeonUser } from '../lib/neonApi';
 import { getSadayaRank, recordWebsiteUsage } from '../lib/websiteUsage';
@@ -39,13 +40,12 @@ const BADGE_RULES = [
     { key: 'consistent', label: 'Sahabat Lingkungan', minXp: 120 },
     { key: 'master', label: 'Jago Pilah Sampah', minXp: 300 }
 ];
-const BALI_REGIONS = ['Jembrana', 'Tabanan', 'Badung', 'Gianyar', 'Klungkung', 'Bangli', 'Karangasem', 'Buleleng', 'Denpasar'];
 
 const Home = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [displayName, setDisplayName] = useState('');
-    const [avatar, setAvatar] = useState('Gianyar');
+    const [avatar, setAvatar] = useState('Jepun');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [inputName, setInputName] = useState('');
     const [consentChecked, setConsentChecked] = useState(false);
@@ -74,7 +74,7 @@ const Home = () => {
                 scanHistory: [],
                 joinedAt: new Date().toISOString(),
                 displayName: name,
-                avatar: 'Gianyar',
+                avatar: 'Jepun',
                 theme: 'default',
                 darkMode: false,
                 profileGoal: ONBOARDING_GOALS[0],
@@ -149,7 +149,7 @@ const Home = () => {
                 const userData = JSON.parse(savedData);
                 setDisplayName(typeof userData.displayName === 'string' && userData.displayName.trim() ? userData.displayName.trim() : storedUser);
                 
-                const regionAvatar = BALI_REGIONS.includes(userData.avatar) ? userData.avatar : 'Gianyar';
+                const regionAvatar = normalizeBaliAvatar(userData.avatar);
                 setAvatar(regionAvatar);
                 if (userData.avatar !== regionAvatar) userData.avatar = regionAvatar;
                 if (userData.profileGoal) {
