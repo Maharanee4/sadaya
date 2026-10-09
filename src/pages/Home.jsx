@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sparkles, ScanLine, MessageCircle, GraduationCap, Recycle, BookOpen, MapPin } from 'lucide-react';
+import { Sparkles, ScanLine, MessageCircle, GraduationCap, Recycle, BookOpen } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import sadayaLogo from '../assets/sadaya-logo-terpilah.png';
@@ -24,8 +24,8 @@ const ONBOARDING_STEPS = [
         description: 'Jelajahi materi, kuis, dan latihan sederhana untuk membedakan sampah organik, nonorganik, dan residu.'
     },
     {
-        title: 'BALI MAP',
-        description: 'Temukan panduan untuk mencari fasilitas pengelolaan sampah resmi di wilayah Bali.'
+        title: 'Pilih langkah kecilmu',
+        description: 'Jelajahi edukasi, kuis, dan obrolan tentang pengelolaan sampah.'
     }
 ];
 
@@ -349,10 +349,8 @@ const Home = () => {
                         {[
                             { title: 'BALI SCAN', detail: 'Cari jenis sebuah benda', path: '/scan', Icon: ScanLine },
                             { title: 'BALI EDU', detail: 'Pelajari dasar pemilahan', path: '/education', Icon: GraduationCap },
-                            { title: 'BALI PILAH', detail: 'Latihan memilih wadah', path: '/checklist', Icon: Recycle },
                             { title: 'TEMAN BALI', detail: 'Tanya chatbot soal sampah', path: '/chat', Icon: MessageCircle },
                             { title: 'BALI QUIZ', detail: 'Uji pemahamanmu', path: '/quiz', Icon: BookOpen },
-                            { title: 'BALI MAP', detail: 'Cari panduan fasilitas Bali', path: '/map', Icon: MapPin },
                         ].map(({ title, detail, path, Icon }) => (
                             <button type="button" key={title} className="waste-feature-card" onClick={() => navigate(path)}>
                                 <Icon className="waste-feature-icon" size={27} aria-hidden="true" />

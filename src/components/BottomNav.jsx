@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Home, BookOpen, GraduationCap, Recycle, ScanLine } from 'lucide-react';
+import { Home, BookOpen, GraduationCap, MessageCircle, ScanLine } from 'lucide-react';
 import './BottomNav.css';
 
 const BottomNav = () => {
@@ -36,13 +36,13 @@ const BottomNav = () => {
             </NavLink>
 
             <NavLink
-                to="/checklist"
+                to="/chat"
                 className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
             >
                 <div className="icon-container">
-                    <Recycle size={22} />
+                    <MessageCircle size={22} />
                 </div>
-                <span>BALI PILAH</span>
+                <span>TEMAN BALI</span>
             </NavLink>
 
             <NavLink
