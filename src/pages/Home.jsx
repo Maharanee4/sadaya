@@ -428,7 +428,7 @@ const Home = () => {
                                 Senang melihatmu di BALI. Yuk kenali jenis sampah dan mulai memilahnya dengan benar di sekolah maupun di rumah.
                             </p>
                             <button className="btn-primary hover-lift" onClick={() => setShowWelcome(false)} style={{ width: '100%', padding: '14px', borderRadius: '16px' }}>
-                                Mulai Perjalanan Remaja
+                                Perjalanan Pilah Sampah
                             </button>
                         </div>
                     </div>
