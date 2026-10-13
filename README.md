@@ -25,8 +25,12 @@ Kiriman anonim menampilkan nama samaran saja. Rate limit server memakai hash ala
 
 Untuk checklist deploy lengkap (env + verifikasi), lihat `VERCEL_CHECKLIST.md`.
 
+## BALI SCAN
+
+BALI SCAN menyediakan kamera, unggah foto, katalog identifikasi manual, dan panduan bahaya/edukasi untuk sampah organik, anorganik, residu, dan B3. Untuk identifikasi foto otomatis, deploy route serverless `api/waste/analyze.js` dan atur `GEMINI_API_KEY` sebagai secret server (jangan gunakan awalan `VITE_`). Katalog manual tetap tersedia tanpa backend atau API key. Hasil visual adalah bantuan awal; periksa kembali benda dan ikuti aturan pengelolaan di daerahmu, terutama untuk sampah B3.
+
 ## Deploy GitHub Pages tanpa backend
 
-Scan tetap berjalan tanpa Vercel melalui pengenalan bertahap di browser. Model cepat (sekitar 21,5 MB) mulai disiapkan saat halaman scan dibuka dan mengenali kelas umum termasuk beberapa buah, makanan, serta air kemasan. Jika tidak menemukan kecocokan, model Food-101 (unduhan tambahan sekitar 60 MB pada pemakaian pertama) mencoba mengenali hidangan yang lebih beragam. Koneksi internet diperlukan untuk mengunduh model; setelah tersimpan, foto diproses di perangkat. Hasil merupakan prediksi visual dan perlu dicocokkan dengan nama makanan pada katalog nutrisi SADAYA. Hidangan atau minuman yang belum ada padanan terverifikasinya tetap perlu dipilih manual.
+Kamera dan katalog BALI SCAN tetap dapat digunakan tanpa backend. Identifikasi otomatis foto membutuhkan route serverless, sehingga pada GitHub Pages gunakan katalog manual untuk mendapatkan kategori dan panduan penanganan.
 
 Untuk menerbitkan ke URL GitHub Pages yang sama, buka `Settings -> Pages`, pilih `GitHub Actions` sebagai sumber deploy, lalu push ke branch `main`. Workflow `.github/workflows/pages.yml` akan build dan menerbitkan situs.

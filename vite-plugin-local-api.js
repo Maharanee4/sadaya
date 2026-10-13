@@ -32,6 +32,7 @@ const ROUTES = {
   '/api/chat/completions': './api/chat/completions.js',
   '/api/fatsecret/analyze': './api/fatsecret/analyze.js',
   '/api/fatsecret/search': './api/fatsecret/search.js',
+  '/api/waste/analyze': './api/waste/analyze.js',
   '/api/health': './api/health.js',
   '/api/yowana': './api/yowana.js'
 };
