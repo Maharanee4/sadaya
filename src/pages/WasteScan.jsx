@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { analyzeWasteImage } from '../lib/wasteApi';
+import { recognizeWasteInBrowser } from '../lib/browserWasteRecognition';
 import { WASTE_CATEGORIES, WASTE_GUIDE } from '../data/wasteGuide';
 import './WasteFeatures.css';
 import './WasteScan.css';
@@ -223,12 +224,36 @@ function WasteScan() {
         return;
       }
 
-      const response = await analyzeWasteImage(photo);
-      const item = WASTE_GUIDE.find((candidate) => candidate.id === response.itemId);
-      if (!item) {
-        throw new Error('Benda belum dikenali dengan yakin. Pilih nama benda pada katalog di bawah untuk melihat panduannya.');
+      let apiError = null;
+      if (!window.location.hostname.endsWith('github.io') || import.meta.env.VITE_API_BASE_URL) {
+        try {
+          const response = await analyzeWasteImage(photo);
+          const item = WASTE_GUIDE.find((candidate) => candidate.id === response.itemId);
+          if (item) {
+            showResult(item, 'Identifikasi AI', response.confidence);
+            return;
+          }
+          if (response.itemId === null) {
+            throw new Error('Benda belum dikenali dengan yakin.');
+          }
+          throw new Error('Server scan mengembalikan hasil yang tidak valid.');
+        } catch (error) {
+          apiError = error;
+          console.warn('Waste scan API unavailable; trying local recognition:', error.message);
+        }
       }
-      showResult(item, 'Identifikasi AI', response.confidence);
+
+      setScanStep('Memeriksa foto langsung di perangkat...');
+      const localResult = await recognizeWasteInBrowser(photo, setScanStep);
+      const item = WASTE_GUIDE.find((candidate) => candidate.id === localResult?.wasteId);
+      if (item) {
+        showResult(item, 'Prediksi visual di perangkat', localResult.confidence);
+        return;
+      }
+      if (apiError) {
+        throw new Error(`Scan otomatis belum berhasil (${apiError.message}). Model di perangkat juga belum menemukan benda yang cukup jelas. Pilih nama benda dari katalog atau coba foto dengan objek yang lebih dekat dan terang.`);
+      }
+      throw new Error('Benda belum dikenali dengan cukup yakin. Coba foto yang lebih dekat dan terang, atau pilih nama benda dari katalog.');
     } catch (error) {
       console.error('Waste scan failed:', error);
       setCameraError(error.name === 'AbortError'
