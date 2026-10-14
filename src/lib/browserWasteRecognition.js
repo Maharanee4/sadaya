@@ -1,13 +1,13 @@
 const TRANSFORMERS_URL = 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.0';
-const QUICK_MODEL = 'Xenova/mobilevit-xx-small';
-const MINIMUM_SCORE = 0.08;
+const DETECTOR_MODEL = 'Xenova/yolos-tiny';
+const MINIMUM_SCORE = 0.35;
 
 let transformersPromise;
-let classifierPromise;
+let detectorPromise;
 
-const getClassifier = () => {
-  if (!classifierPromise) {
-    classifierPromise = (async () => {
+const getDetector = () => {
+  if (!detectorPromise) {
+    detectorPromise = (async () => {
       if (!transformersPromise) {
         transformersPromise = import(/* @vite-ignore */ TRANSFORMERS_URL)
           .then((transformers) => {
@@ -20,84 +20,39 @@ const getClassifier = () => {
           });
       }
       const { pipeline } = await transformersPromise;
-      return pipeline('image-classification', QUICK_MODEL);
+      return pipeline('object-detection', DETECTOR_MODEL, { dtype: 'q4' });
     })().catch((error) => {
-      classifierPromise = null;
+      detectorPromise = null;
       throw error;
     });
   }
-  return classifierPromise;
+  return detectorPromise;
 };
 
-const normalize = (value) => String(value || '')
-  .toLowerCase()
-  .normalize('NFD')
-  .replace(/[\u0300-\u036f]/g, '')
-  .replace(/[^a-z0-9]+/g, ' ')
-  .trim();
-
-const MODEL_LABEL_WASTE_IDS = new Map([
+const DETECTED_WASTE_IDS = new Map([
+  ['bottle', 'botol-minuman'],
   ['banana', 'kulit-buah-sayur'],
-  ['banana peel', 'kulit-buah-sayur'],
-  ['bunch of bananas', 'kulit-buah-sayur'],
+  ['apple', 'kulit-buah-sayur'],
   ['orange', 'kulit-buah-sayur'],
-  ['lemon', 'kulit-buah-sayur'],
-  ['lime', 'kulit-buah-sayur'],
-  ['granny smith', 'kulit-buah-sayur'],
-  ['cucumber', 'kulit-buah-sayur'],
-  ['zucchini', 'kulit-buah-sayur'],
-  ['acorn squash', 'kulit-buah-sayur'],
-  ['butternut squash', 'kulit-buah-sayur'],
-  ['spaghetti squash', 'kulit-buah-sayur'],
-  ['artichoke', 'kulit-buah-sayur'],
-  ['bell pepper', 'kulit-buah-sayur'],
   ['broccoli', 'kulit-buah-sayur'],
-  ['cauliflower', 'kulit-buah-sayur'],
-  ['head cabbage', 'kulit-buah-sayur'],
-  ['mushroom', 'kulit-buah-sayur'],
-  ['paper towel', 'tisu-kotor'],
-  ['toilet tissue', 'tisu-kotor'],
-  ['tissue paper', 'tisu-kotor'],
-  ['plastic bag', 'kemasan-plastik-bersih'],
-  ['polythene bag', 'kemasan-plastik-bersih'],
-  ['pop bottle', 'botol-plastik'],
-  ['water bottle', 'botol-plastik'],
-  ['bottle of water', 'botol-plastik'],
-  ['plastic bottle', 'botol-plastik'],
-  ['beer bottle', 'botol-kaca'],
-  ['wine bottle', 'botol-kaca'],
-  ['glass bottle', 'botol-kaca'],
-  ['can opener', 'kaleng-logam'],
-  ['electric battery', 'baterai'],
-  ['battery', 'baterai'],
-  ['cellular telephone', 'elektronik'],
-  ['mobile phone', 'elektronik'],
-  ['remote control', 'elektronik'],
-  ['desktop computer', 'elektronik'],
-  ['laptop', 'elektronik'],
-  ['notebook computer', 'elektronik'],
-  ['computer keyboard', 'elektronik'],
-  ['computer mouse', 'elektronik'],
+  ['carrot', 'kulit-buah-sayur'],
+  ['sandwich', 'sisa-makanan'],
+  ['pizza', 'sisa-makanan'],
+  ['donut', 'sisa-makanan'],
+  ['cake', 'sisa-makanan'],
+  ['hot dog', 'sisa-makanan'],
   ['mouse', 'elektronik'],
-  ['modem', 'elektronik'],
-  ['telephone', 'elektronik'],
-  ['handheld computer', 'elektronik'],
-  ['ipod', 'elektronik'],
-  ['cassette player', 'elektronik'],
-  ['cd player', 'elektronik'],
+  ['remote', 'elektronik'],
+  ['keyboard', 'elektronik'],
+  ['cell phone', 'elektronik'],
+  ['laptop', 'elektronik'],
+  ['tv', 'elektronik'],
+  ['microwave', 'elektronik'],
+  ['oven', 'elektronik'],
+  ['toaster', 'elektronik'],
+  ['hair drier', 'elektronik'],
+  ['book', 'kertas-karton'],
 ]);
-
-const findWasteForLabel = (label) => {
-  const labels = [...new Set(String(label || '').split(',').map(normalize).filter(Boolean))];
-  for (const normalizedLabel of labels) {
-    const exactMatch = MODEL_LABEL_WASTE_IDS.get(normalizedLabel);
-    if (exactMatch) return exactMatch;
-    for (const [modelLabel, wasteId] of MODEL_LABEL_WASTE_IDS) {
-      if (normalizedLabel.startsWith(`${modelLabel} `)) return wasteId;
-    }
-  }
-  return null;
-};
 
 export const recognizeWasteInBrowser = async (imageDataUrl, onStage = () => {}) => {
   const imageBlob = await fetch(imageDataUrl).then((response) => {
@@ -105,17 +60,18 @@ export const recognizeWasteInBrowser = async (imageDataUrl, onStage = () => {}) 
     return response.blob();
   });
 
-  onStage('Menyiapkan model pengenalan di perangkat (unduhan pertama sekitar 22 MB)...');
-  const classifier = await getClassifier();
-  onStage('Mengenali benda dengan model visual di perangkat...');
-  const predictions = await classifier(imageBlob, { top_k: 10 });
-  const match = (predictions || []).find((prediction) => (
-    Number(prediction.score) >= MINIMUM_SCORE && findWasteForLabel(prediction.label)
-  ));
+  onStage('Menyiapkan model deteksi benda di perangkat (unduhan pertama sekitar 10 MB)...');
+  const detector = await getDetector();
+  onStage('Mencari benda yang terlihat pada foto...');
+  const detections = await detector(imageBlob, { threshold: MINIMUM_SCORE });
+
+  const match = (detections || [])
+    .filter((detection) => DETECTED_WASTE_IDS.has(String(detection.label || '').toLowerCase()))
+    .sort((first, second) => Number(second.score) - Number(first.score))[0];
 
   if (!match) return null;
   return {
-    wasteId: findWasteForLabel(match.label),
+    wasteId: DETECTED_WASTE_IDS.get(String(match.label).toLowerCase()),
     confidence: Number(match.score),
     label: match.label,
   };

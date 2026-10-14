@@ -27,10 +27,10 @@ Untuk checklist deploy lengkap (env + verifikasi), lihat `VERCEL_CHECKLIST.md`.
 
 ## BALI SCAN
 
-BALI SCAN menyediakan kamera, unggah foto, katalog identifikasi manual, dan panduan bahaya/edukasi untuk sampah organik, anorganik, residu, dan B3. Di GitHub Pages, pengenalan foto berjalan langsung di browser: model visual diunduh saat scan pertama kali (sekitar 22 MB), lalu foto diproses di perangkat. Untuk identifikasi melalui server pada deployment yang mendukung serverless, deploy route `api/waste/analyze.js` dan atur `GEMINI_API_KEY` sebagai secret server (jangan gunakan awalan `VITE_`). Katalog manual tetap tersedia tanpa backend atau API key. Hasil prediksi visual dapat keliru; periksa kembali benda dan ikuti aturan pengelolaan di daerahmu, terutama untuk sampah B3.
+BALI SCAN menyediakan kamera, unggah foto, katalog identifikasi manual, dan panduan bahaya/edukasi untuk sampah organik, anorganik, residu, dan B3. Di GitHub Pages, pengenalan foto berjalan langsung di browser menggunakan deteksi objek: model terkompresi diunduh saat scan pertama kali (sekitar 10 MB), lalu foto diproses di perangkat. Untuk identifikasi melalui server pada deployment yang mendukung serverless, deploy route `api/waste/analyze.js` dan atur `GEMINI_API_KEY` sebagai secret server (jangan gunakan awalan `VITE_`). Katalog manual tetap tersedia tanpa backend atau API key. Hasil prediksi visual dapat keliru; periksa kembali benda dan ikuti aturan pengelolaan di daerahmu, terutama untuk sampah B3.
 
 ## Deploy GitHub Pages tanpa backend
 
-Kamera, pengenalan visual di perangkat, dan katalog BALI SCAN tersedia tanpa backend. Model visual memerlukan koneksi internet untuk diunduh saat pertama kali; foto setelahnya diproses di perangkat. Pengenalan model terbatas pada benda yang didukung, sehingga gunakan katalog manual jika hasilnya tidak meyakinkan.
+Kamera, deteksi objek di perangkat, dan katalog BALI SCAN tersedia tanpa backend. Model deteksi memerlukan koneksi internet untuk diunduh saat pertama kali; foto setelahnya diproses di perangkat. Pengenalan model terbatas pada benda yang didukung, sehingga gunakan katalog manual jika hasilnya tidak meyakinkan.
 
 Untuk menerbitkan ke URL GitHub Pages yang sama, buka `Settings -> Pages`, pilih `GitHub Actions` sebagai sumber deploy, lalu push ke branch `main`. Workflow `.github/workflows/pages.yml` akan build dan menerbitkan situs.
